@@ -1,0 +1,149 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  min-height: 100vh;
+}
+header {
+  display: flex;
+  padding-left: 15px;
+  width: 1487px;
+  /* height: 200px; */
+  border-bottom: 1px solid black;
+  background-color: #00285d;
+}
+.logo {
+  margin-top: 10px;
+}
+.nav {
+  display: flex;
+  margin-top: 50px;
+  padding-left: 620px;
+  gap: 40px;
+  /* margin-right: 20px; */
+}
+.img {
+  margin-top: -12px;
+}
+a {
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+a:hover {
+  color: rgb(255, 40, 133);
+}
+.quotes {
+  width: 80vw;
+  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* z-index: 2; */
+  box-sizing: border-box;
+  margin-left: 150px;
+  margin-top: 150px;
+}
+.quotes .box {
+  position: relative;
+  width: 25vw;
+  height: 50vh;
+  min-height: 320px;
+  background: #ffe3fe;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+}
+.quotes .box p {
+  text-align: center;
+  font-size: 25px;
+}
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+.quotes .box h2 {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  font-size: 1.5rem;
+}
+h3 {
+  text-align: center;
+  font-size: 25px;
+}
+h4 {
+  text-align: center;
+  border: 2px solid;
+  background-color: rgb(255, 168, 136);
+  padding: 5px 5px;
+}
+
+.quotes .box:hover {
+  color: #f2f2f2;
+  box-shadow: 20px 50px 100px rgba(223, 187, 255, 0.5);
+}
+.quotes .bg {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.quotes .box.box1:hover,
+.quotes .box.box1:hover ~ .bg {
+  opacity: 1;
+  color: black;
+}
+.quotes .box.box2:hover,
+.quotes .box.box2:hover ~ .bg {
+  opacity: 1;
+  color: black;
+}
+
+.quotes .box.box3:hover,
+.quotes .box.box3:hover ~ .bg {
+  opacity: 1;
+  color: black;
+}
+header {
+  display: flex;
+  padding-left: 15px;
+  width: 1487px;
+  border-bottom: 1px solid black;
+  background-color: rgb(249, 242, 248);
+}
+.logo {
+  margin-top: 20px;
+}
+.nav {
+  display: flex;
+  margin-top: 50px;
+  padding-left: 660px;
+  gap: 70px;
+}
+a {
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  color: rgb(107, 51, 160);
+}
+a:hover {
+  color: rgb(255, 40, 133);
+}
