@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-# Mgood_100daysproject
+# nithyashri.rameshbabu\_\_web_project
 
-=======
-# nithyashri.rameshbabu__web_project
->>>>>>> a29c82655cd8922b2536579286d19b899ef08b6b
 My website is basically for women's health.So,it contains so much usages for women.It consists of women's health problems like irregular periods,preganancy,breast cancer etc..And there will be a solution for everything like blogs and we can even consult to doctors about our problems through online and offline sessions.We can take health tests like blood test or sugar level tests.This is all about my website.I understood how busy life is now so, women dont want to go outside.They can be treated in home itself using my Mgood website.
 
 problem statement: https://docs.google.com/document/d/13pdEcQRqbVwlsou6YRpkra35lUnGK18WHavr9uVjZWc/edit
