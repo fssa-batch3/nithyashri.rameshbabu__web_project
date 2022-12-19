@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(/Assets/images/—Pngtree—contrast\ color\ stitching\ purple\ background_1331676.png);
+  background-color: #00285d;
   background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@ body {
 .loginbox {
   width: 350px;
   height: 450px;
-  background: rgb(236, 220, 249);
+  background-color: #dbebff;
   color: #fff;
   top: 30%;
   left: 40%;
@@ -17,14 +17,15 @@ body {
   transform: translate(-50% -50%);
   box-sizing: border-box;
   padding: 70px 40px;
+  border: 3px solid;
 }
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   position: absolute;
-  top: -60px;
-  left: 33%;
+  top: -50px;
+  left: 36%;
 }
 h1 {
   text-align: center;
@@ -61,7 +62,7 @@ input[type="number"] {
   font-size: 18px;
   border-radius: 20px;
   /* z-index: 5; */
-  margin-left: 0px;
-  padding: 5px 110px;
+  margin-left: 5px;
+  padding: 5px 100px;
   text-decoration: none;
 }

@@ -12,17 +12,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(/Assets/images/—Pngtree—contrast\ color\ stitching\ purple\ background_1331676.png);
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #00285d;
 }
 
 .container {
   width: 750px;
   height: 500px;
   border: 1px solid;
-  background-color: white;
+  background-color: aliceblue;
   display: flex;
   flex-direction: column;
   padding: 40px;
@@ -64,8 +61,8 @@ body {
 }
 
 a {
-  background-color: blueviolet;
-  color: white;
+  color: rgb(255, 255, 255);
+  background-color: #00285d;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;

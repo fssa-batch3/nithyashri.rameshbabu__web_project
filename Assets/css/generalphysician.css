@@ -5,7 +5,7 @@
 body {
   overflow-x: hidden;
   font-family: sans-serif;
-  background-color: rgba(251, 228, 253, 0.896);
+  background-color: #dbebff;
 }
 header {
   display: flex;
@@ -54,8 +54,8 @@ a:hover {
   border: none;
   outline: none;
   /* height: 30px;
-    width: 30px; */
-  background-color: blueviolet;
+  width: 30px; */
+  background-color: #00285d;
   color: rgb(255, 255, 255);
   font-size: 23px;
   border-radius: 10px;
@@ -63,9 +63,6 @@ a:hover {
   /* margin-left: 80px; */
   padding: 5px 20px;
   text-decoration: none;
-}
-.btn:hover {
-  color: #000000;
 }
 .img1 img {
   border: 2px solid;
@@ -75,12 +72,6 @@ a:hover {
 .img1:hover {
   transform: cubic-bezier(0.17, 0.67, 0.83, 0.67);
   transform: scale(1.12);
-}
-hr {
-  top: 10px;
-  width: 680px;
-  margin-left: 420px;
-  height: 0;
 }
 .content {
   color: rgb(113, 112, 112);
@@ -95,4 +86,55 @@ hr {
   margin-top: 3px;
   padding: 2px 2px;
   text-align: center;
+}
+.footlogo {
+  margin-top: 50px;
+  margin-left: 30px;
+  /* margin-top: 50px; */
+  position: relative;
+  top: 70px;
+}
+.footsocialmedia {
+  margin-top: 80px;
+  margin-left: 40px;
+}
+.sidefooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: -80px;
+  padding-left: 140px;
+  /* padding-top: 10px; */
+}
+.footer {
+  background-color: #00285d;
+  height: 330px;
+  width: 1500px;
+}
+h4 {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(255, 255, 255);
+}
+h6 {
+  font-size: 15px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.imglast {
+  margin-left: 30px;
+  padding-top: 20px;
+}
+input {
+  width: 400px;
+  height: 40px;
+  border: 3px solid;
+  border-radius: 50px;
+  padding: 0px 11px;
+  margin-left: 540px;
+  margin-top: 30px;
+}
+i {
+  color: black;
+  margin-left: -40px;
 }

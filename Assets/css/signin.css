@@ -1,16 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(/Assets/images/—Pngtree—contrast\ color\ stitching\ purple\ background_1331676.png);
   font-family: sans-serif;
-  background-size: auto;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #00285d;
 }
 .loginbox {
   width: 350px;
   height: 450px;
-  background: rgb(242, 220, 255);
+  background-color: #dbebff;
   top: 30%;
   left: 40%;
   position: absolute;
@@ -19,12 +16,12 @@ body {
   padding: 70px 40px;
 }
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   position: absolute;
-  top: -60px;
-  left: 33%;
+  top: -50px;
+  left: 36%;
 }
 h1 {
   text-align: center;
