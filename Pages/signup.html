@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/signin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="contain">
+        <div class="wrap">
+            <div class="tit"><span>Sign-Up</span></div>
+            <form id="form">
+                <div class="rows">
+                    <i class="fas fa-user"></i>
+                    <input id="fname" type="text" placeholder="first name" required>
+                </div>
+                <div class="rows">
+                    <i class="fas fa-user"></i>
+                    <input id="lname" type="text" placeholder="last name" required>
+                </div>
+                <div class="rows">
+                    <i class="fa fa-envelope"></i>
+                    <input id="email" type="email" placeholder="email" required>
+                </div>
+                <div class="rows">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="pass" placeholder="password" required>
+                </div>
+                <div class="rows button">
+                    <button type="submit">sign-Up</button>
+                </div>
+                <div class="signup">Already member? Login now </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let arr = [];
+        let form = document.getElementById("form");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let userdata = {};
+            const fname = document.getElementById("fname").value;
+            const lname = document.getElementById("lname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("pass").value;
+            userdata["fname"] = fname;
+            userdata["lname"] = lname;
+            userdata["email"] = email;
+            userdata["pass"] = password;
+            arr.push(userdata);
+            if (window.localStorage.getItem("user") === null) {
+                window.localStorage.setItem("user", JSON.stringify(arr));
+            } else {
+                let local = window.localStorage.getItem("user");
+                let backup = JSON.parse(local);
+                backup.push(userdata);
+                window.localStorage.setItem("user", JSON.stringify(backup));
+            }
+            window.location.href = "#";
+        });
+
+    </script>
+</body>
+
+</html>

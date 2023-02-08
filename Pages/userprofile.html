@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../assets/css/userprofile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="wholeprofilecontainer">
+        <div class="userimg">
+            <img class="userimground" src="../after-login/assets/images/images.png" alt="" />
+        </div>
+        <div class="userdetails">
+            <h1 class="profileh1">Profile Settings</h1>
+            <form action="homepage.html">
+                <div class="namesurflex">
+                    <div>
+                        <label for="name">First Name</label><br />
+                        <input type="text" id="name" placeholder=" enter your name" /><br />
+                    </div>
+                    <div>
+                        <label for="surname">Last name</label><br />
+                        <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
+                    </div>
+                </div>
+                <label for="emailid">Email ID</label><br />
+                <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" /><br />
+                <label for="postalcode">Password</label><br />
+                <input class="postalcode" id="password" /><br />
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+
+        <script>
+
+            let userprofile = JSON.parse(window.localStorage.getItem("login_user"))
+            console.log(userprofile)
+            document.getElementById("name").value = userprofile[0]["fname"];
+            document.getElementById("surname").value = userprofile[0]["lname"];
+            document.getElementById("email").value = userprofile[0]["email"];
+            document.getElementById("password").value = userprofile[0]["pass"];
+
+
+        </script>
+
+</body>
+
+</html>

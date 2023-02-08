@@ -6,24 +6,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <div class="loginbox">
-        <img class="avatar" src="../Assets/images/login logo.png" alt="pic">
-        <h1>Login here</h1>
-        <form>
-            <p>Username</p>
-            <input type="text" name="user" placeholder="Enter username">
-            <p>Password</p>
-            <input type="password" name="passkey" placeholder="Enter password">
-            <p>Mobile no</p>
-            <input type="number" name="no" placeholder="Enter mobile no">
-            <a class="btn" href="../index.html">Log In</a><br><br>
-            <a href="../pages/signin.html">Dont have an account?</a>
-        </form>
+    <div class="contain">
+        <div class="wrap">
+            <div class="tit"><span>Login Here</span></div>
+            <form id="form2">
+                <div class="rows">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="email" placeholder="Email or Phone" required>
+                </div>
+                <div class="rows">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="password"><a href="./signin.html">Forgot password?</a></div>
+                <div class="rows button">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="signup">Not a member? <a href="./signin.html">Signup now</a></div>
+            </form>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        let form2 = document.getElementById("form2");
+        form2.addEventListener("submit", function (event) {
+            let arr = [];
+            event.preventDefault();
+            let check = localStorage.getItem("user");
+            let data = JSON.parse(check);
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            let match = false;
+            for (let i = 0; i < data.length; i++) {
+
+                if (email === data[i].email && password === data[i].pass) {
+                    match = true;
+                    arr.push(data[i]);
+                    window.localStorage.setItem("login_user", JSON.stringify(arr));
+                    break;
+                }
+                else {
+                    match = false;
+                }
+
+            }
+
+            if (match) {
+                window.alert("login success!");
+                window.location.href = "../index.html"
+            }
+            else {
+                window.alert("invalid details");
+            }
+
+
+        });
+
+    </script>
 </body>
 
 </html>
