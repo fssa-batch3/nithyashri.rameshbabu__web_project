@@ -119,3 +119,41 @@ button {
   justify-content: center;
   border-radius: 7px;
 }
+
+#fname:valid {
+  border-color: green;
+}
+
+#fname:focus:invalid {
+  border-color: red;
+}
+
+#lname:valid {
+  border-color: green;
+}
+
+#lname:focus:invalid {
+  border-color: red;
+}
+#email:valid {
+  border-color: green;
+}
+
+#email:focus:invalid {
+  border-color: red;
+}
+#pass:valid {
+  border-color: green;
+}
+
+#pass:focus:invalid {
+  border-color: red;
+}
+
+#passwd:valid {
+  border-color: green;
+}
+
+#passwd:focus:invalid {
+  border-color: red;
+}

@@ -61,7 +61,7 @@ input {
   font-weight: 300;
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
-  margin-left: 200px;
+  margin-left: 60px;
   cursor: pointer;
 }
 .submit:hover {

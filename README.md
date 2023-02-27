@@ -11,3 +11,15 @@ Userflow: https://drive.google.com/drive/folders/19vVsOaPmbJF2kELw__VnI2_XonpFkl
 Wireframe: https://drive.google.com/drive/folders/1RlQ6jaHdCM9d3jk22UbsYNlKSYv9OVo3
 
 Sonar cloud: https://sonarcloud.io/project/overview?id=fssa-batch3_nithyashri.rameshbabu__web_project
+
+CRUD For User signing page
+=> Create user account [completed]
+=> Read User Data For Profile Page [completed]
+=> Update user details For Edit Page [completed]
+=> Delete user details For deactivate [completed]
+
+CRUD For User Features page
+=> Create products card/list [working]
+=> Read Product Data For card [working]
+=> Update user details For card [working]
+=> Deactivate Product details For Card [working]

@@ -107,3 +107,18 @@ form .button:hover {
 form .signup a:hover {
   text-decoration: underline;
 }
+
+#password:valid {
+  border-color: green;
+}
+
+#password:focus:invalid {
+  border-color: red;
+}
+#email:valid {
+  border-color: green;
+}
+
+#email:focus:invalid {
+  border-color: red;
+}
