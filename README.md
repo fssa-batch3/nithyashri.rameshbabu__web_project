@@ -19,7 +19,7 @@ CRUD For User signing page
 => Delete user details For deactivate [completed]
 
 CRUD For User Features page
-=> Create products card/list [working]
-=> Read Product Data For card [working]
+=> Create products card/list [completed]
+=> Read Product Data For card [completed]
 => Update user details For card [working]
 => Deactivate Product details For Card [working]
