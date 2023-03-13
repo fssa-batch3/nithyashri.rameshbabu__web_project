@@ -34,10 +34,104 @@
             <input id="link" type="text" name="" required="required" />
             <span>Link</span>
         </div>
-
-        <button type="submit" class="btn5">Send</button>
+        <!-- button -->
+        <button type="submit" id="btn" class="btn5">Change</button>
+        <button id="btn2" class="btn4" type="submit">Delete</button>
     </form>
 
+    <!-- Javascript -->
+    <script>
+        // getting array
+        let array = JSON.parse(localStorage.getItem("new_card"));
+
+        // getting the id in the url
+        const url = window.location.search;
+        const url_params = new URLSearchParams(url)
+        const get_id = url_params.get("doc_id")
+        // console.log(get_id);
+
+        //    getting full object from id
+        let prod_obj = array.find(function (doctor) {
+            let check_id = doctor["doc_id"]
+            if (get_id == check_id)
+                return true
+        })
+        // console.log(prod_obj);
+
+        // Showing the value in edit page
+        let image = document.getElementById("image_url");
+        let href = document.getElementById("href");
+        let rating = document.getElementById("rating");
+        let name = document.getElementById("Name");
+        let edu = document.getElementById("Education");
+        let link = document.getElementById("link");
+
+        image.value = prod_obj["image"]
+        href.value = prod_obj["href"]
+        rating.value = prod_obj["rate"]
+        name.value = prod_obj["name"]
+        edu.value = prod_obj["education"]
+        link.value = prod_obj["link"]
+
+        // edit
+        let form = document.getElementById("form")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let img = document.getElementById("image_url").value;
+            let hr = document.getElementById("href").value;
+            let rat = document.getElementById("rating").value;
+            let nam = document.getElementById("Name").value;
+            let educa = document.getElementById("Education").value;
+            let li = document.getElementById("link").value;
+
+            let doc_obj = {
+                image: img,
+                href: hr,
+                rate: rat,
+                name: nam,
+                education: educa,
+                link: li,
+            }
+            // console.log(doc_obj);
+
+            let check_obj = Object.assign(prod_obj, doc_obj)
+            console.log(check_obj)
+
+            let index = array.indexOf(prod_obj)
+            console.log(index);
+
+            array[index] = check_obj
+
+            localStorage.setItem("new_card", JSON.stringify(array))
+            console.log(array);
+
+            alert("edited successfully")
+
+
+
+        })
+
+        let vardel = document.getElementById("btn2");
+        vardel.addEventListener("submit", function (event) {
+            // event.p
+            let delete_index = array.indexOf(prod_obj)
+            console.log(delete_index)
+            let confirm = confirm("Are you sure you want to delete this account")
+            if (confirm !== true) {
+                return;
+            } else {
+                array.splice(delete_index, 1);
+                console.log(array);
+                localStorage.setItem("new_card", JSON.stringify(array));
+                // window.location.href ="";
+            }
+
+        });
+
+
+
+    </script>
 </body>
 
 </html>
