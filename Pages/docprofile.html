@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <link rel="stylesheet" href="../assets/css/userprofile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/doc.profile.css">
 </head>
 
 <body>
@@ -24,10 +22,6 @@
                     <label for="name">First Name</label><br />
                     <input type="text" id="name" placeholder=" enter your name" /><br />
                 </div>
-                <div>
-                    <label for="surname">Last name</label><br />
-                    <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
-                </div>
                 <!-- </div> -->
                 <label for="emailid">Email ID</label><br />
                 <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" /><br />
@@ -38,23 +32,21 @@
                 <input class="postalcode" id="address" /><br />
                 <label for="postalcode">Mobile number</label><br />
                 <input class="postalcode" id="phone_no" /><br />
-                <!-- <select>
-                    <option value="male">Female</option>
-                    <option value="male">Male</option>
-                    <option value="male">Other</option>
-                </select> -->
+
                 <button class="submit" type="submit">Submit</button>
                 <button class="submit" type="submit" id="delete">Delete</button>
             </form>
         </div>
 
+
+
+
+
         <script>
 
-
-
-            let oneUser = JSON.parse(localStorage.getItem("login_user"));
+            let oneUser = JSON.parse(localStorage.getItem("doclogin_user"));
             // for array
-            let fullArray = JSON.parse(localStorage.getItem("user"));
+            let fullArray = JSON.parse(localStorage.getItem("doc_user"));
             let selectedUser = fullArray.find(function (event) {
                 let emailValue = event["email"];
                 if (oneUser == emailValue) {
@@ -65,14 +57,11 @@
             let first_name = document.getElementById("name");
             let last_name = document.getElementById("surname");
             let email = document.getElementById("email");
-            // let address = document.getElementById("address");
-            // let mobileNumber = document.getElementById("phone_no");
+
 
             email.value = selectedUser["email"];
             first_name.value = selectedUser["fname"];
             last_name.value = selectedUser["lname"];
-            // address.value = selectedUser["address"];
-            // mobileNumber.value = selectedUser["phone_no"]
 
             let pForm = document.getElementById("form");
             pForm.addEventListener("submit", function (event) {
@@ -106,18 +95,7 @@
                     // window.location.href ="";
                 }
             });
-
-
-
-
-
-
-
-
-
-
         </script>
-
 </body>
 
 </html>
