@@ -118,42 +118,8 @@
             </div>
         </div> -->
     </div>
-
     <script>
-        let card = [
-            {
-                image: "../assets/images/womendoc1.jpg",
-                href: "consult now",
-                rate: 92,
-                name: "Dr maha",
-                education: "Gynecologist/ Obstetrician",
-                link: "https://www.hotstar.com/in/tv/house-of-the-dragon/1260110208?utm_source=gwa",
-            },
-            {
-                image: "../assets/images/womendoc1.jpg",
-                href: "consult now",
-                rate: 92,
-                name: "Dr.seetha",
-                education: "Gynecologist/ Obstetrician",
-                link: "https://www.hotstar.com/in/tv/house-of-the-dragon/1260110208?utm_source=gwa",
-            },
-            {
-                image: "../assets/images/womendoc1.jpg",
-                href: "consult now",
-                rate: 92,
-                name: "Dr Nithya",
-                education: "Gynecologist/ Obstetrician",
-                link: "https://www.hotstar.com/in/tv/house-of-the-dragon/1260110208?utm_source=gwa",
-            },
-            {
-                image: "../assets/images/womendoc1.jpg",
-                href: "consult now",
-                rate: 92,
-                name: "Dr Ishu",
-                education: "Gynecologist/ Obstetrician",
-                link: "https://www.hotstar.com/in/tv/house-of-the-dragon/1260110208?utm_source=gwa",
-            },
-        ]
+        let card = []
         let card_div;
         let div1;
         let image;
@@ -209,23 +175,12 @@
 
             a = document.createElement("a");
             a.setAttribute("class", "btn");
-            a.setAttribute("href", card[i]["link"])
+            a.setAttribute("href", "../Pages/doctordetail.html?user_id=" + card[i]["doc_id"])
             a.innerText = "Consult Now"
             btn.append(a);
             document.querySelector(".main").append(card_div);
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>

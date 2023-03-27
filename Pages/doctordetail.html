@@ -16,18 +16,18 @@
             <div class="product-div">
                 <div class="product-div-left">
                     <div class="img-container">
-                        <img src="../assets/images/womendoc6.jpg" alt="watch">
+                        <img id="img" alt="watch">
                     </div>
                 </div>
                 <div class="product-div-right">
-                    <span class="doctor-name">Dr Seetha</span>
-                    <span class="doctor-price">Gynecologist</span>
+                    <span id="name" class="doctor-name"></span>
+                    <span id="edu" class="doctor-price"></span>
                     <div class="doctor-rating">
                         <span><i class="fas fa-star"></i></span>
                         <span><i class="fas fa-star"></i></span>
                         <span><i class="fas fa-star"></i></span>
                         <span><i class="fas fa-star-half-alt"></i></span>
-                        <span>98% Rating</span>
+                        <span id="rate"></span>
                     </div>
                     <p class="doctor-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae animi
                         ad minima veritatis dolore. Architecto facere dignissimos voluptate fugit ratione molestias quis
@@ -41,6 +41,29 @@
             </div>
         </div>
     </div>
+    <script>
+        let details_url = window.location.search
+        let urlparams = new URLSearchParams(details_url)
+        let geturl = urlparams.get("user_id")
+        // console.log(geturl);
+        let details = JSON.parse(window.localStorage.getItem("new_card"))
+        console.log(details);
+        let doc_detail = details.find(function (doc_object) {
+            let doc_user = doc_object["doc_id"]
+            console.log(doc_user);
+            if (geturl == doc_user) {
+                return true;
+            }
+        })
+        let images = document.getElementById("img")
+        images.setAttribute("src", doc_detail["image"])
+        let name = document.getElementById("name")
+        name.innerText = doc_detail["name"]
+        let rate = document.getElementById("rate")
+        rate.innerText = doc_detail["rate"]
+        let edu = document.getElementById("edu")
+        edu.innerText = doc_detail["education"]
+    </script>
 </body>
 
 </html>

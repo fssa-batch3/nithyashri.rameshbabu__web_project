@@ -157,11 +157,3 @@ button {
 #passwd:focus:invalid {
   border-color: red;
 }
-/* .upload{
-  font-size: 16px;
-  border-radius: 50px;
-  box-shadow: 5px 5px 10px black;
-  width:350px;
-  outline:none;
-  background-color: #fff;
-} */

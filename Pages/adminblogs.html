@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/form.css">
+    <link rel="stylesheet" href="../assets/css/adminblog.css">
 </head>
 
 <body>
@@ -45,46 +45,46 @@
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            let updates = {};
+            let blogObj = {};
 
             let image_url = document.getElementById("image_url").value;
-            updates["image"] = image_url;
+            blogObj["image"] = image_url;
 
             let href = document.getElementById("href").value;
             // console.log(rediracting);
-            updates["href"] = href;
+            blogObj["href"] = href;
 
             let rating = document.getElementById("rating").value;
             // console.log(rating);
-            updates["rate"] = rating;
+            blogObj["rate"] = rating;
 
             let name = document.getElementById("Name").value;
             // console.log(title);
-            updates["name"] = name;
+            blogObj["name"] = name;
 
             let education = document.getElementById("Education").value;
             // console.log(title);
-            updates["education"] = education;
+            blogObj["education"] = education;
 
             let link = document.getElementById("link").value;
             // console.log(link);
-            updates["link"] = link;
+            blogObj["link"] = link;
 
-            let doc_id = Date.now()
-            updates["doc_id"] = doc_id;
+            let blog_id = Date.now()
+            blogObj["blog_id"] = blog_id;
 
-            console.log(updates);
+            console.log(blogObj);
 
             let all = [];
 
-            if (localStorage.getItem("new_card") != null) {
-                all = JSON.parse(localStorage.getItem("new_card"));
+            if (localStorage.getItem("blog") != null) {
+                all = JSON.parse(localStorage.getItem("blog"));
                 console.log(all);
             }
 
-            all.push(updates);
+            all.push(blogObj);
 
-            localStorage.setItem("new_card", JSON.stringify(all));
+            localStorage.setItem("blog", JSON.stringify(all));
 
         });
     </script>

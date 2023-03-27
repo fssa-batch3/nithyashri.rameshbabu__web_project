@@ -13,9 +13,6 @@
 
 <body>
     <div class="wholeprofilecontainer">
-        <div class="userimg">
-            <img class="userimground" src="../assets/images/2127712-middle-removebg-preview.png" alt="" />
-        </div>
         <div class="userdetails">
             <h1 class="profileh1">Profile Settings</h1>
             <form id="form">
@@ -38,6 +35,8 @@
                 <input class="postalcode" id="address" /><br />
                 <label for="postalcode">Mobile number</label><br />
                 <input class="postalcode" id="phone_no" /><br />
+                <label for="postalcode">Upload image</label><br />
+                <input class="postalcode" id="image_url" /><br />
                 <!-- <select>
                     <option value="male">Female</option>
                     <option value="male">Male</option>
@@ -46,6 +45,8 @@
                 <button class="submit" type="submit">Submit</button>
                 <button class="submit" type="submit" id="delete">Delete</button>
             </form>
+
+
         </div>
 
         <script>
@@ -82,8 +83,9 @@
                 let email = document.getElementById("email").value;
                 let address = document.getElementById("address").value;
                 let mobileNumber = document.getElementById("phone_no").value;
+                let image = document.getElementById("image_url").value;
 
-                let newData = { first_name, last_name, email, address, mobileNumber };
+                let newData = { email, address, mobileNumber, image };
                 let combinedData = Object.assign(selectedUser, newData);
                 console.log(combinedData);
                 let findIndex = fullArray.indexOf(selectedUser);
@@ -91,6 +93,7 @@
                 fullArray[findIndex] = combinedData;
                 localStorage.setItem("user", JSON.stringify(fullArray));
                 alert("successfully changed");
+                window.location.href = "./doctor0.html";
             });
             let delete_user = document.getElementById("delete");
             delete_user.addEventListener("click", function (event) {
@@ -103,18 +106,9 @@
                     fullArray.splice(indexDel, 1);
                     console.log(fullArray);
                     localStorage.setItem("user", JSON.stringify(fullArray));
-                    // window.location.href ="";
+
                 }
             });
-
-
-
-
-
-
-
-
-
 
         </script>
 

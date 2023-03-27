@@ -1,6 +1,6 @@
 # nithyashri.rameshbabu\_\_web_project
 
-My website is basically for women's health.So,it contains so much usages for women.It consists of women's health problems like irregular periods,preganancy,breast cancer etc..And there will be a solution for everything like blogs and we can even consult to doctors about our problems through online and offline sessions.We can take health tests like blood test or sugar level tests.This is all about my website.I understood how busy life is now so, women dont want to go outside.They can be treated in home itself using my Mgood website.
+My website is basically for women's health.So,it contains so much usages for women.It consists of women's health problems like irregular periods,preganancy,breast cancer etc..And there will be a solution for everything like blogs and we can even consult to doctors about our problems through online and offline sessions.We can take health tests like blood test or sugar level tests.This is all about my website.I understood how busy life is now so, women can describe their problem to our doctors.They can be treated in home itself using my Mgood website.
 
 problem statement: https://docs.google.com/document/d/13pdEcQRqbVwlsou6YRpkra35lUnGK18WHavr9uVjZWc/edit
 
@@ -18,8 +18,16 @@ CRUD For User signing page
 => Update user details For Edit Page [completed]
 => Delete user details For deactivate [completed]
 
-CRUD For User Features page
-=> Create products card/list [completed]
-=> Read Product Data For card [completed]
-=> Update user details For card [completed]
-=> Deactivate Product details For Card [completed]
+CRUD For Doc card page
+=> Create doctor card/list [completed]
+=> Read doctor Data For card [completed]
+=> Update doctor details For card [completed]
+=> Deactivate doctor details For Card [completed]
+
+CRUD For blog card page
+=> Create blog card/list [completed]
+=> Read blog Data For card [working]
+=> Update blog details For card [completed]
+=> Deactivate blog details For Card [working]
+
+

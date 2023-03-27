@@ -27,13 +27,12 @@
         </header>
 
         <div class="box">
-            <input type="text" placeholder="Search locations,doctors">
-            <a href="#"><i class="fas fa-search"></i></a>
+            <h1>List of doctors</h1>
         </div>
-        <a href="./form.html"> <button> ADD +</button></a>
+        <a href="./form.html"> <button class="addbtn"> ADD +</button></a>
         <div class="main">
             <div class="wrapper">
-                <div class="img1">
+                <!-- <div class="img1">
                     <img src="../assets/images/womendoc1.jpg" width="110" height="110">
                 </div>
                 <div>
@@ -47,15 +46,15 @@
 
 
 
-                    <p class="rate"><b>92%</b></p>
+                    <p class="rate"><b>92%</b></p> -->
 
-                </div>
-                <div>
-                    <!-- <a class="btn" href="../pages/payment.html">Consult now</a> -->
-                    <button>EDIT</button>
-                    <button onclick="del()">Delete</button>
-                </div>
             </div>
+            <div>
+                <!-- <a class="btn" href="../pages/payment.html">Consult now</a> -->
+                <!-- <button>EDIT</button> -->
+                <!-- <button onclick="del()">Delete</button> -->
+            </div>
+        </div>
         </div>
 
         <script>
@@ -106,11 +105,10 @@
                 a.innerText = "Edit"
                 btn.append(a);
 
-                b = document.createElement("a");
-                b.setAttribute("href", "");
-                b.setAttribute("class", "btn");
-                b.innerText = "delete"
-                btn.append(b);
+                // b = document.createElement("a");
+                // b.setAttribute("href", "");
+                // b.setAttribute("class", "btn");
+                // btn.append(b);
 
                 document.querySelector(".main").append(card_div);
 
@@ -136,7 +134,18 @@
             }
 
 
+            const menu = document.querySelector("#menu-btn");
+            const navbar = document.querySelector(".navbar");
 
+            menu.onclick = () => {
+                menu.classList.toggle("fa-times");
+                navbar.classList.toggle("active");
+            };
+
+            window.onscroll = () => {
+                menu.classList.remove("fa-times");
+                navbar.classList.remove("active");
+            };
 
 
 

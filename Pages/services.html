@@ -68,11 +68,12 @@
         <div class="box">
             <div class="icons">03</div>
             <div class="content">
-                <h3>Periods blogs</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos distinctio veritatis unde eligendi
+                <h3 id="h3">Periods blogs</h3>
+                <p class="passage">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos distinctio veritatis
+                    unde eligendi
                     dignissimos voluptatem dolorem similique consectetur reprehenderit nobis, vel officiis nihil esse
                     nisi sit quas molestiae aperiam quod!</p>
-                <a href="#">Read more</a>
+                <a href="#" class="link">Read more</a>
             </div>
         </div>
         <div class="box">
@@ -113,57 +114,51 @@
                 <div class="footer-col">
                     <h4>Follow Us</h4>
                     <div class="share">
-                        <a href="#" class="fab fa-youtube"></a>=                               
+                        <a href="#" class="fab fa-youtube"></a>=
                     </div>
                 </div>
             </div>
         </div>
+
+
     </footer>
+    <script src="../assets/js/script.js"></script>
+    <script>
+        let blogs = JSON.parse(windows.localStorage.getItem("blog"))
+        let card = []
+        for (let i = 0; i < blogs.length; i++) {
+            card.push(blogs[i])
+        }
+        let divone;
+        divone = document.createElement("div")
+        divone.setAttribute("class", "box");
 
+        let divtwo;
+        divtwo = document.createElement("div")
+        divtwo.setAttribute("class", "icons")
+        divone.append(divtwo)
 
+        let divthree;
+        divthree = document.createElement("content")
+        divone.append("divthree")
 
+        let head;
+        head = document.createElement("h3")
+        head.setAttribute("id", "h3")
+        head.innertext = card[i]["username"]
+        divthree.append(head);
 
+        let passage;
+        passage = document.createElement("p")
+        passage.setAttribute("class", "passage");
+        passage.innertext = card[i]["para"]
+        divthree.append(passage);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="../assets/js/script.js">
+        let a;
+        a = document.createElement("a")
+        a.setAttribute("class", "link");
+        a.setAttribute("href")
+        a.innertext = "Readmore"
     </script>
 </body>
 

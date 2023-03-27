@@ -36,7 +36,7 @@
         </div>
         <!-- button -->
         <button type="submit" id="btn" class="btn5">Change</button>
-        <button id="btn2" class="btn4" type="submit">Delete</button>
+        <button id="btn2" onclick="del()" class="btn4" type="submit">Delete</button>
     </form>
 
     <!-- Javascript -->
@@ -112,22 +112,23 @@
 
         })
 
-        let vardel = document.getElementById("btn2");
-        vardel.addEventListener("submit", function (event) {
+        function del() {
             // event.p
             let delete_index = array.indexOf(prod_obj)
             console.log(delete_index)
-            let confirm = confirm("Are you sure you want to delete this account")
-            if (confirm !== true) {
-                return;
-            } else {
+            let msg = confirm("Are you sure you want to delete this account")
+            if (msg == true) {
                 array.splice(delete_index, 1);
                 console.log(array);
                 localStorage.setItem("new_card", JSON.stringify(array));
+                location.reload();
+                return;
+            } else {
+                return;
                 // window.location.href ="";
             }
 
-        });
+        }
 
 
 
