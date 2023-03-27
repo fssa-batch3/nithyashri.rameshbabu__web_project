@@ -18,6 +18,7 @@ CRUD For User signing page
 => Update user details For Edit Page [completed]
 => Delete user details For deactivate [completed]
 
+<<<<<<< HEAD
 CRUD For Doc card page
 => Create doctor card/list [completed]
 => Read doctor Data For card [completed]
@@ -31,3 +32,16 @@ CRUD For blog card page
 => Deactivate blog details For Card [working]
 
 
+=======
+CRUD For doctor  page
+=> Create doctor [completed]
+=> Read doctor [completed]
+=> Update doctor [completed]
+=> Deactivate doctor details[completed]
+
+CRUD For admin  page
+=> Create admin [completed]
+=> Read admin [completed]
+=> Update admin [completed]
+=> Deactivate admin[completed]
+>>>>>>> b33757ba09bbf7c5d2878c12cf646e5af025b5d5
