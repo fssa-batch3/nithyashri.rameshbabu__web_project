@@ -18,8 +18,14 @@ CRUD For User signing page
 => Update user details For Edit Page [completed]
 => Delete user details For deactivate [completed]
 
-CRUD For User Features page
-=> Create products card/list [completed]
-=> Read Product Data For card [completed]
-=> Update user details For card [completed]
-=> Deactivate Product details For Card [completed]
+CRUD For doctor  page
+=> Create doctor [completed]
+=> Read doctor [completed]
+=> Update doctor [completed]
+=> Deactivate doctor details[completed]
+
+CRUD For admin  page
+=> Create admin [completed]
+=> Read admin [completed]
+=> Update admin [completed]
+=> Deactivate admin[completed]
