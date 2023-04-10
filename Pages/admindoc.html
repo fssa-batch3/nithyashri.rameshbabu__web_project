@@ -105,6 +105,14 @@
                 a.innerText = "Edit"
                 btn.append(a);
 
+                delbutton = document.createElement("button")
+                delbutton.innerText = "Delete"
+                delbutton.setAttribute("class", "btn")
+                delbutton.setAttribute("id", new_card[i]["doc_id"])
+                delbutton.setAttribute("onclick", "del(this.id)")
+                btn.append(delbutton)
+
+
                 // b = document.createElement("a");
                 // b.setAttribute("href", "");
                 // b.setAttribute("class", "btn");
@@ -131,6 +139,30 @@
 
                 localStorage.setItem("id", JSON.stringify(productId));
                 window.location.href = "../Pages/edit.html"
+            }
+            let array = JSON.parse(localStorage.getItem("new_card"))
+            let docid = JSON.parse(localStorage.getItem("id"))
+            console.log(docid)
+
+            function del(d) {
+                let docs = array.find(function (d) {
+                    let edit = d["doc_id"]
+                    if (edit == docid[0]["doc_id"]) {
+                        return true;
+                    }
+                })
+                console.log(docs)
+                let dlt = array.indexOf(docs)
+                let dle = confirm("Are you sure you want to delete this blog")
+                if (dle !== true) {
+                    return
+                }
+                else {
+                    array.splice(dlt, 1)
+                    window.localStorage.setItem("new_card", JSON.stringify(array))
+                    location.reload()
+                }
+
             }
 
 

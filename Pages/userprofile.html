@@ -14,10 +14,13 @@
 <body>
     <div class="wholeprofilecontainer">
         <div class="userdetails">
+
             <h1 class="profileh1">Profile Settings</h1>
             <form id="form">
                 <!-- <div class="namesurflex"> -->
+                <img alt="#" id="profile">
                 <div>
+
                     <label for="name">First Name</label><br />
                     <input type="text" id="name" placeholder=" enter your name" /><br />
                 </div>
@@ -66,14 +69,21 @@
             let first_name = document.getElementById("name");
             let last_name = document.getElementById("surname");
             let email = document.getElementById("email");
-            // let address = document.getElementById("address");
-            // let mobileNumber = document.getElementById("phone_no");
+            let password = document.getElementById("password");
+            let img = document.getElementById("image_url")
+            let address = document.getElementById("address");
+            let mobileNumber = document.getElementById("phone_no");
 
             email.value = selectedUser["email"];
             first_name.value = selectedUser["fname"];
             last_name.value = selectedUser["lname"];
-            // address.value = selectedUser["address"];
-            // mobileNumber.value = selectedUser["phone_no"]
+            password.value = selectedUser["password"];
+            img.value = selectedUser["image"]
+            address.value = selectedUser["address"];
+            mobileNumber.value = selectedUser["phone_no"]
+
+            let photo = document.getElementById("profile")
+            photo.setAttribute("src", selectedUser["image"])
 
             let pForm = document.getElementById("form");
             pForm.addEventListener("submit", function (event) {

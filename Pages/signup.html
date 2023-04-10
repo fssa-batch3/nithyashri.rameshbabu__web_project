@@ -47,7 +47,6 @@
     </div>
 
     <script>
-
         let form = document.getElementById("form");
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -94,9 +93,9 @@
                     let backup_data = JSON.parse(new_data);
                     backup_data.push(userdata);
                     localStorage.setItem("user", JSON.stringify(backup_data));
-
-                    window.location.href = "./login.html";
                     alert("User Added");
+                    window.location.href = "./login.html";
+
 
                 }
             }

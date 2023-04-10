@@ -22,7 +22,7 @@
             <a href="./doctor.html">Doctors</a>
             <a href="./contact.html">Contact</a>
             <a href="./services.html">Blogs</a>
-            <img id="random_img">
+            <img onclick="profile()" id="random_img">
         </nav>
         <div id="menu-btn" class="fas fa-bars"></div>
     </header>
@@ -147,6 +147,11 @@
 
 
     <script src="../assets/js/script.js">
+    </script>
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
     </script>
 </body>
 

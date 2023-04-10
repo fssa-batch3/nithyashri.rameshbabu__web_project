@@ -24,7 +24,7 @@
         <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <div class="wrapper">
-        <div class="box">
+        <!-- <div class="box">
             <div class="icons">01</div>
             <div class="content">
                 <h3>Periods blogs</h3>
@@ -85,7 +85,8 @@
                     nisi sit quas molestiae aperiam quod!</p>
                 <a href="#">Read more</a>
             </div>
-        </div>
+        </div> -->
+
     </div>
     <footer class="footer">
         <div class="container">
@@ -122,43 +123,59 @@
 
 
     </footer>
-    <script src="../assets/js/script.js"></script>
+    <!-- <script src="../assets/js/script.js"></script> -->
     <script>
-        let blogs = JSON.parse(windows.localStorage.getItem("blog"))
+        let blogs = JSON.parse(window.localStorage.getItem("blog"))
         let card = []
         for (let i = 0; i < blogs.length; i++) {
             card.push(blogs[i])
         }
-        let divone;
-        divone = document.createElement("div")
-        divone.setAttribute("class", "box");
+        console.log(card);
+        for (let i = 0; i < card.length; i++) {
 
-        let divtwo;
-        divtwo = document.createElement("div")
-        divtwo.setAttribute("class", "icons")
-        divone.append(divtwo)
 
-        let divthree;
-        divthree = document.createElement("content")
-        divone.append("divthree")
+            let divone;
+            divone = document.createElement("div")
+            divone.setAttribute("class", "box");
 
-        let head;
-        head = document.createElement("h3")
-        head.setAttribute("id", "h3")
-        head.innertext = card[i]["username"]
-        divthree.append(head);
+            let divtwo;
+            divtwo = document.createElement("img")
+            divtwo.setAttribute("src", card[i]["image"])
+            divtwo.setAttribute("class", "icons")
+            divone.append(divtwo)
 
-        let passage;
-        passage = document.createElement("p")
-        passage.setAttribute("class", "passage");
-        passage.innertext = card[i]["para"]
-        divthree.append(passage);
+            let divthree;
+            divthree = document.createElement("div")
+            divone.append(divthree)
 
-        let a;
-        a = document.createElement("a")
-        a.setAttribute("class", "link");
-        a.setAttribute("href")
-        a.innertext = "Readmore"
+            let head;
+            head = document.createElement("h3")
+            head.setAttribute("id", "h3")
+            head.innerText = card[i]["name"]
+            divthree.append(head);
+
+            let passage;
+            passage = document.createElement("p")
+            passage.setAttribute("class", "passage");
+            passage.innerText = card[i]["content"]
+            divthree.append(passage);
+
+            let a;
+            a = document.createElement("a")
+            a.setAttribute("class", "link");
+            a.setAttribute("href", "./blogdetail.html?blog_id=" + card[i]["blog_id"])
+            // a.innertext = "Readmore"
+            divthree.append(a);
+
+            let button;
+            button = document.createElement("button")
+            button.innerText = "viewmore"
+            button.setAttribute("class", "btn")
+            a.append(button)
+            document.querySelector(".wrapper").append(divone)
+
+
+        }
     </script>
 </body>
 

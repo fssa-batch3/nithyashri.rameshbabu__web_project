@@ -12,31 +12,19 @@
 <body>
     <form id="form">
         <div class="inputBox">
-            <input id="image_url" type="text" name="" required="required" />
+            <input id="image_url" type="text" required="required" />
             <span>Image Url</span>
         </div>
         <div class="inputBox">
-            <input id="href" type="text" name="" required="required" />
-            <span>href</span>
+            <input id="Name" type="text" required="required" />
+            <span>Title</span>
         </div>
         <div class="inputBox">
-            <input id="rating" type="number" name="" required="required" />
-            <span>Rating</span>
-        </div>
-        <div class="inputBox">
-            <input id="Name" type="text" name="" required="required" />
-            <span>Name</span>
-        </div>
-        <div class="inputBox">
-            <input id="Education" type="text" name="" required="required" />
-            <span>Education</span>
-        </div>
-        <div class="inputBox">
-            <input id="link" type="text" name="" required="required" />
-            <span>Link</span>
+            <input id="content" type="text" required="required" />
+            <span>Content</span>
         </div>
 
-        <button type="submit" class="btn5">Send</button>
+        <button type="submit" class="btn5">Send</butt on>
     </form>
 
     <script>
@@ -50,25 +38,13 @@
             let image_url = document.getElementById("image_url").value;
             blogObj["image"] = image_url;
 
-            let href = document.getElementById("href").value;
-            // console.log(rediracting);
-            blogObj["href"] = href;
-
-            let rating = document.getElementById("rating").value;
-            // console.log(rating);
-            blogObj["rate"] = rating;
-
             let name = document.getElementById("Name").value;
             // console.log(title);
             blogObj["name"] = name;
 
-            let education = document.getElementById("Education").value;
-            // console.log(title);
-            blogObj["education"] = education;
-
-            let link = document.getElementById("link").value;
+            let link = document.getElementById("content").value;
             // console.log(link);
-            blogObj["link"] = link;
+            blogObj["content"] = link;
 
             let blog_id = Date.now()
             blogObj["blog_id"] = blog_id;
