@@ -88,6 +88,9 @@ body {
 form .button a:hover {
   background: rgb(17, 163, 163);
 }
+.signup {
+  cursor: pointer;
+}
 .wrap form .signup {
   text-align: center;
   margin-top: 20px;

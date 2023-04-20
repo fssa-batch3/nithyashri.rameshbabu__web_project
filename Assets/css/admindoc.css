@@ -109,7 +109,7 @@ html {
   width: 40px;
   height: 20px;
   margin-top: 3px;
-  padding: 2px 4px;
+  padding: 2px 2px;
   text-align: center;
 }
 body {
@@ -170,12 +170,12 @@ form.nosubmit {
   border: none;
   /* padding: 0; */
 }
-.main {
+/* .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: -300px;
-}
+} */
 
 input.nosubmit {
   border: 1px solid #555;

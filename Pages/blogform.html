@@ -24,6 +24,7 @@
             <span>Content</span>
         </div>
 
+
         <button type="submit" class="btn5">Send</butt on>
     </form>
 
@@ -61,6 +62,8 @@
             all.push(blogObj);
 
             localStorage.setItem("blog", JSON.stringify(all));
+            alert("Blog created")
+            window.location.href = "./adminservices.html"
 
         });
     </script>

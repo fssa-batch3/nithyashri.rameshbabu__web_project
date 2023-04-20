@@ -26,11 +26,12 @@
         </nav>
         <div id="menu-btn" class="fas= fa-bars"></div>
     </header>
-
-    <div class="box">
-        <input type="text" placeholder="Search locations,doctors">
-        <a href="#"><i class="fas fa-search"></i></a>
+    <div class="container">
+        <form class="nosubmit">
+            <input class="nosubmit" id="search" type="search" placeholder="Search...">
+        </form>
     </div>
+
     <div class="main">
         <!-- <div class="wrapper">
             <div class="img1">
@@ -178,6 +179,24 @@
             a.innerText = "Consult Now"
             btn.append(a);
             document.querySelector(".main").append(card_div);
+
+            let wrapper = document.getElementsByClassName("wrapper")
+
+            search.addEventListener("input", () => {
+                for (let i = 0; i < wrapper.length; i++) {
+                    let search_input = wrapper[i]
+                    if (search_input.innerHTML.toLowerCase().includes(search.value.toLowerCase())) {
+                        search_input.style.display = "block"
+                    }
+                    else {
+                        search_input.style.display = "none"
+                    }
+                }
+            })
+
+
+
+
         }
     </script>
 </body>

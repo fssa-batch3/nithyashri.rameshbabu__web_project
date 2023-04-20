@@ -12,115 +12,148 @@
 </head>
 
 <body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+        <nav class="navbar">
+            <a href="./adminlogin.html">Admin</a>
+            <a href="./contact.html">Contact</a>
+            <a href="./signup.html">Login</a>
+            <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </header>
     <div class="wholeprofilecontainer">
         <div class="userdetails">
 
-            <h1 class="profileh1">Profile Settings</h1>
+            <h1 class="profileh1">Edit profile</h1>
             <form id="form">
-                <!-- <div class="namesurflex"> -->
-                <img alt="#" id="profile">
-                <div>
+                <img alt="" id="profile">
 
-                    <label for="name">First Name</label><br />
-                    <input type="text" id="name" placeholder=" enter your name" /><br />
-                </div>
-                <div>
-                    <label for="surname">Last name</label><br />
-                    <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
-                </div>
-                <!-- </div> -->
+                <label for="name">First Name</label><br />
+                <input type="text" id="name" placeholder=" enter your name" /><br />
+
+
+                <label for="surname">Last name</label><br />
+                <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
+
                 <label for="emailid">Email ID</label><br />
                 <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" /><br />
 
                 <label for="postalcode">Password</label><br />
-                <input class="postalcode" id="password" /><br />
+                <input type="password" class="postalcode" id="password" /><br />
                 <label for="postalcode">Address</label><br />
                 <input class="postalcode" id="address" /><br />
                 <label for="postalcode">Mobile number</label><br />
                 <input class="postalcode" id="phone_no" /><br />
                 <label for="postalcode">Upload image</label><br />
                 <input class="postalcode" id="image_url" /><br />
-                <!-- <select>
-                    <option value="male">Female</option>
-                    <option value="male">Male</option>
-                    <option value="male">Other</option>
-                </select> -->
-                <button class="submit" type="submit">Submit</button>
+                <button class="submit" type="submit">Save</button>
                 <button class="submit" type="submit" id="delete">Delete</button>
             </form>
-
-
         </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="rows">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Ratings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Specialist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Blogs</h4>
+                    <ul>
+                        <li><a href="#">consult</a></li>
+                        <li><a href="#">packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="share">
+                        <a href="#" class="fab fa-youtube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+    <script>
 
-        <script>
 
+        let oneUser = JSON.parse(localStorage.getItem("login_user"));
+        // for array
+        let fullArray = JSON.parse(localStorage.getItem("user"));
+        let selectedUser = fullArray.find(function (event) {
+            let emailValue = event["email"];
+            if (oneUser == emailValue) {
+                return true;
+            }
+        });
+        console.log(selectedUser);
+        let first_name = document.getElementById("name");
+        let last_name = document.getElementById("surname");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let img = document.getElementById("image_url")
+        let address = document.getElementById("address");
+        let mobileNumber = document.getElementById("phone_no");
 
+        email.value = selectedUser["email"];
+        first_name.value = selectedUser["fname"];
+        last_name.value = selectedUser["lname"];
+        password.value = selectedUser["password"];
+        img.value = selectedUser["image"]
+        address.value = selectedUser["address"];
+        mobileNumber.value = selectedUser["phone_no"]
 
-            let oneUser = JSON.parse(localStorage.getItem("login_user"));
-            // for array
-            let fullArray = JSON.parse(localStorage.getItem("user"));
-            let selectedUser = fullArray.find(function (event) {
-                let emailValue = event["email"];
-                if (oneUser == emailValue) {
-                    return true;
-                }
-            });
-            console.log(selectedUser);
-            let first_name = document.getElementById("name");
-            let last_name = document.getElementById("surname");
-            let email = document.getElementById("email");
-            let password = document.getElementById("password");
-            let img = document.getElementById("image_url")
-            let address = document.getElementById("address");
-            let mobileNumber = document.getElementById("phone_no");
+        let photo = document.getElementById("profile")
+        photo.setAttribute("src", selectedUser["image"])
 
-            email.value = selectedUser["email"];
-            first_name.value = selectedUser["fname"];
-            last_name.value = selectedUser["lname"];
-            password.value = selectedUser["password"];
-            img.value = selectedUser["image"]
-            address.value = selectedUser["address"];
-            mobileNumber.value = selectedUser["phone_no"]
+        let pForm = document.getElementById("form");
+        pForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let first_name = document.getElementById("name").value;
+            let last_name = document.getElementById("surname").value;
+            let email = document.getElementById("email").value;
+            let address = document.getElementById("address").value;
+            let mobileNumber = document.getElementById("phone_no").value;
+            let image = document.getElementById("image_url").value;
 
-            let photo = document.getElementById("profile")
-            photo.setAttribute("src", selectedUser["image"])
-
-            let pForm = document.getElementById("form");
-            pForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-                let first_name = document.getElementById("name").value;
-                let last_name = document.getElementById("surname").value;
-                let email = document.getElementById("email").value;
-                let address = document.getElementById("address").value;
-                let mobileNumber = document.getElementById("phone_no").value;
-                let image = document.getElementById("image_url").value;
-
-                let newData = { email, address, mobileNumber, image };
-                let combinedData = Object.assign(selectedUser, newData);
-                console.log(combinedData);
-                let findIndex = fullArray.indexOf(selectedUser);
-                console.log(findIndex);
-                fullArray[findIndex] = combinedData;
+            let newData = { email, address, mobileNumber, image };
+            let combinedData = Object.assign(selectedUser, newData);
+            console.log(combinedData);
+            let findIndex = fullArray.indexOf(selectedUser);
+            console.log(findIndex);
+            fullArray[findIndex] = combinedData;
+            localStorage.setItem("user", JSON.stringify(fullArray));
+            alert("successfully changed");
+            window.location.href = "./doctor0.html";
+        });
+        let delete_user = document.getElementById("delete");
+        delete_user.addEventListener("click", function (event) {
+            event.preventDefault();
+            let indexDel = fullArray.indexOf(selectedUser);
+            let msg = confirm("Are you sure you want to delete this account");
+            if (msg !== true) {
+                return;
+            } else {
+                fullArray.splice(indexDel, 1);
+                console.log(fullArray);
                 localStorage.setItem("user", JSON.stringify(fullArray));
-                alert("successfully changed");
-                window.location.href = "./doctor0.html";
-            });
-            let delete_user = document.getElementById("delete");
-            delete_user.addEventListener("click", function (event) {
-                event.preventDefault();
-                let indexDel = fullArray.indexOf(selectedUser);
-                let msg = confirm("Are you sure you want to delete this account");
-                if (msg !== true) {
-                    return;
-                } else {
-                    fullArray.splice(indexDel, 1);
-                    console.log(fullArray);
-                    localStorage.setItem("user", JSON.stringify(fullArray));
 
-                }
-            });
+            }
+        });
 
-        </script>
+    </script>
 
 </body>
 
