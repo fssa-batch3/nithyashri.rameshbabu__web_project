@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <header class="header" id="header">
+    </header>
     <div class="main-wrapper">
         <div class="container">
             <div class="product-div">
@@ -22,25 +24,17 @@
                 <div class="product-div-right">
                     <span id="name" class="doctor-name"></span>
                     <span id="edu" class="doctor-price"></span>
-                    <div class="doctor-rating">
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star-half-alt"></i></span>
-                        <span id="rate"></span>
-                    </div>
-                    <p class="doctor-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae animi
-                        ad minima veritatis dolore. Architecto facere dignissimos voluptate fugit ratione molestias quis
-                        quidem exercitationem voluptas.</p>
+                    <span id="rate" class="doctor-hos"></span>
+                    <p class="doctor-description" id="para"></p>
                     <div class="btn-groups">
-                        <button type="button" class="add-appointment">Book
+                        <button id="btn" onclick="btn()" class="add-appointment">Book
                             appointment</button>
-                        <button type="button" class="available-slot">Slot 6AM-10AM</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script>
         let details_url = window.location.search
         let urlparams = new URLSearchParams(details_url)
@@ -63,7 +57,42 @@
         rate.innerText = doc_detail["rate"]
         let edu = document.getElementById("edu")
         edu.innerText = doc_detail["education"]
+        let paras = document.getElementById("para")
+        paras.innerText = doc_detail["link"]
+        console.log(doc_detail)
+
+
+
+
+        function btn() {
+            window.location.href = "../Pages/bookapp.html?app_id=" + doc_detail["doc_id"]
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
+
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
+    </script>
+    <script src="../components/header.js">
+
+    </script>
+    <script>
+        nav_head()
+    </script>
+
 </body>
 
 </html>

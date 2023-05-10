@@ -16,16 +16,20 @@
             <span>Image Url</span>
         </div>
         <div class="inputBox">
-            <input id="href" type="text" name="" required="required" />
-            <span>href</span>
+            <input id="rating" type="text" name="" required="required" />
+            <span>Hospital</span>
         </div>
         <div class="inputBox">
-            <input id="rating" type="number" name="" required="required" />
-            <span>Rating</span>
+            <input id="hospitalimg" type="text" name="" required="required" />
+            <span>Hospital img</span>
         </div>
         <div class="inputBox">
             <input id="Name" type="text" name="" required="required" />
             <span>Name</span>
+        </div>
+        <div class="inputBox">
+            <input id="docmail" type="text" name="" required="required" />
+            <span>Doctor mail</span>
         </div>
         <div class="inputBox">
             <input id="Education" type="text" name="" required="required" />
@@ -33,8 +37,9 @@
         </div>
         <div class="inputBox">
             <input id="link" type="text" name="" required="required" />
-            <span>Link</span>
+            <span>overall ex</span>
         </div>
+
 
         <button type="submit" class="btn5">Send</button>
     </form>
@@ -45,18 +50,19 @@
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            let updates = {};
+            let updates = {
+
+            };
 
             let image_url = document.getElementById("image_url").value;
             updates["image"] = image_url;
 
-            let href = document.getElementById("href").value;
-            // console.log(rediracting);
-            updates["href"] = href;
-
             let rating = document.getElementById("rating").value;
             // console.log(rating);
             updates["rate"] = rating;
+            let hosimg = document.getElementById("hospitalimg").value;
+            // console.log(rating);
+            updates["hosimg"] = hosimg;
 
             let name = document.getElementById("Name").value;
             // console.log(title);
@@ -69,7 +75,9 @@
             let link = document.getElementById("link").value;
             // console.log(link);
             updates["link"] = link;
-
+            let docmail = document.getElementById("docmail").value;
+            // console.log(link);
+            updates["docmail"] = docmail;
             let doc_id = Date.now()
             updates["doc_id"] = doc_id;
 

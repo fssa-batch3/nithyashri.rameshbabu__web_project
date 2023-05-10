@@ -6,21 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="../assets/css/userprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
-        <nav class="navbar">
-            <a href="./adminlogin.html">Admin</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./signup.html">Login</a>
-            <a href="#"><i class="fa fa-shopping-cart"></i></a>
-        </nav>
-        <div id="menu-btn" class="fas fa-bars"></div>
+    <header class="header" id="header">
+
     </header>
     <div class="wholeprofilecontainer">
         <div class="userdetails">
@@ -30,23 +22,25 @@
                 <img alt="" id="profile">
 
                 <label for="name">First Name</label><br />
-                <input type="text" id="name" placeholder=" enter your name" /><br />
+                <input type="text" id="name" placeholder=" enter your name" required /><br />
 
 
                 <label for="surname">Last name</label><br />
-                <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
+                <input type="text" class="surname" id="surname" placeholder=" enter your last name" required /><br />
 
                 <label for="emailid">Email ID</label><br />
-                <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" /><br />
+                <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" required /><br />
 
                 <label for="postalcode">Password</label><br />
-                <input type="password" class="postalcode" id="password" /><br />
+                <input type="password" class="postalcode" id="password" required /><br />
                 <label for="postalcode">Address</label><br />
-                <input class="postalcode" id="address" /><br />
+                <input class="postalcode" id="address" required /><br />
                 <label for="postalcode">Mobile number</label><br />
-                <input class="postalcode" id="phone_no" /><br />
+                <input class="postalcode" id="phone_no" type="tel"
+                    pattern="^(?:\+1)?[ -]?\(?([0-9]{3})\)?[ -]?([0-9]{3})[ -]?([0-9]{4})$"
+                    title="Must contain 10 numbers" required /><br />
                 <label for="postalcode">Upload image</label><br />
-                <input class="postalcode" id="image_url" /><br />
+                <input class="postalcode" id="image_url" required /><br />
                 <button class="submit" type="submit">Save</button>
                 <button class="submit" type="submit" id="delete">Delete</button>
             </form>
@@ -113,7 +107,7 @@
         password.value = selectedUser["password"];
         img.value = selectedUser["image"]
         address.value = selectedUser["address"];
-        mobileNumber.value = selectedUser["phone_no"]
+        mobileNumber.value = selectedUser["mobileNumber"]
 
         let photo = document.getElementById("profile")
         photo.setAttribute("src", selectedUser["image"])
@@ -149,12 +143,22 @@
                 fullArray.splice(indexDel, 1);
                 console.log(fullArray);
                 localStorage.setItem("user", JSON.stringify(fullArray));
+                localStorage.removeItem("login_user")
+                alert("account deleted")
+                window.location.href = "/index.html";
 
             }
+
         });
 
     </script>
 
+    <script src="../components/header.js">
+
+    </script>
+    <script>
+        nav_head()
+    </script>
 </body>
 
 </html>

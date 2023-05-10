@@ -9,23 +9,22 @@
     <link rel="stylesheet" href="../assets/css/adminhealthtest.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Link css -->
-    <link rel="stylesheet" href="../assets/css/adminhealthtest.css">
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+    <header class="header" id="header">
+        <!-- <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
 
         <nav class="navbar">
-            <!-- <a href="./Pages/adminsign.html">Admin</a> -->
+
             <a href="#">Health checks</a>
             <a href="./admin.html">Doctors</a>
             <a href="./contact.html">Contact</a>
             <a href="./services.html">Blogs</a>
             <a href="#"><i class="fa fa-shopping-cart"></i></a>
-            <!-- <a href="./Pages/signup.html">Login</a> -->
+      
         </nav>
-        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="menu-btn" class="fas fa-bars"></div> -->
     </header>
     <div class="container">
         <form class="nosubmit">
@@ -81,7 +80,7 @@
             butt.innerText = "Add to cart"
             butt.setAttribute("class", "bt")
             butt.setAttribute("id", testcard[i]["healthtest_id"])
-            butt.setAttribute("onclick", "cart(this.id)")
+            butt.setAttribute("onclick", "addcart(this.id)")
             divcard.append(butt)
 
             buttwo = document.createElement("button")
@@ -102,55 +101,88 @@
                     }
                 }
             })
-            function cart(e) {
+            function addcart(e) {
+                let cardid = []
                 let mainArr = JSON.parse(window.localStorage.getItem("new_test"))
                 console.log(mainArr)
                 let id = e
                 console.log(id)
 
-                localStorage.setItem("cardid", JSON.stringify(id))
-
                 let cardId = JSON.parse(localStorage.getItem("cardid"))
                 console.log(cardId);
-                let cart = mainArr.find(function (arrId) {
-                    let cartid = arrId["healthtest_id"]
-
-                    console.log(cartid);
-                    if (cartid == cardId) {
-                        return true
-                    }
-                })
-                console.log(cart);
-                let idCard = cart["healthtest_id"]
-                console.log(idCard);
-
-                let cardArr = [{ null: "null" },]
-                if (localStorage.getItem("addtocart") != null) {
-                    cardArr = JSON.parse(localStorage.getItem("addtocart"));
-
+                if (localStorage.getItem("cardid") != null) {
+                    cardid = JSON.parse(localStorage.getItem("cardid"));
                 }
-                let fullcard = JSON.parse(window.localStorage.getItem("addtocart"))
-                console.log(fullcard)
+                cardid.push(id)
+                localStorage.setItem("cardid", JSON.stringify(cardid))
 
-                for (let i = 0; i < fullcard.length; i++) {
-                    if (idCard != fullcard[i]["healthtest_id"] || fullcard[i]["null"] == "null") {
-                        cardArr.push(cart)
-                    }
-                    else {
-                        alert("already added")
-                        return
-                    }
-                }
+
+
+                // for (let i = 0; i < fullcard.length; i++) {
+                //     if (idCard != fullcard[i]["healthtest_id"] || fullcard[i]["null"] == "null") {
+                //         cardArr.push(cart)
+                //     }
+                //     else {
+                //         alert("already added")
+                //         return
+                //     }
+                // }
+
+
+
+                // let cart = mainArr.find(function (arrId) {
+                //     let cartid = arrId["healthtest_id"]
+
+                //     console.log(cartid);
+                //     if (cartid == cardId) {
+                //         return true
+                //     }
+                // })
+                // console.log(cart);
+                // let idCard = cart["healthtest_id"]
+                // console.log(idCard);
+
+                // let cardArr = []
+
+
+                // if (localStorage.getItem("addtocart") != null) {
+                //     cardArr = JSON.parse(localStorage.getItem("addtocart"));
+
+
+                // }
                 // cardArr.push(cart)
+                // window.localStorage.setItem("addtocart", JSON.stringify(cardArr))
+                // let fullcard = JSON.parse(window.localStorage.getItem("addtocart"))
+                // // console.log(fullcard)
 
-                window.localStorage.setItem("addtocart", JSON.stringify(cardArr))
-
-
+                // for (let i = 0; i < fullcard.length; i++) {
+                //     if (idCard != fullcard[i]["healthtest_id"] || fullcard[i]["null"] == "null") {
+                //         cardArr.push(cart)
+                //     }
+                //     else {
+                //         alert("already added")
+                //         return
+                //     }
+                // }
 
 
             }
 
+            // let cart = []
+
+            // function addcart(item) {
+            //     for (let i = 0; i < cart.length; i++) {
+            //         if (cart[i].healthtest_id === item)
+            //     }
+
+            // }
+
         }
+    </script>
+    <script src="../components/header.js">
+    </script>
+    <script>
+        nav_head()
     </script>
 </body>
 

@@ -14,17 +14,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+    <header class="header" id="header">
 
-        <nav class="navbar">
-            <a href="#">home</a>
-            <a href="#">services</a>
-            <a href="#">about</a>
-            <a href="#">doctors</a>
-            <a href="#">blogs</a>
-        </nav>
-        <div id="menu-btn" class="fas= fa-bars"></div>
     </header>
     <div class="container">
         <form class="nosubmit">
@@ -121,6 +112,7 @@
     </div>
     <script>
         let card = []
+
         let card_div;
         let div1;
         let image;
@@ -137,6 +129,7 @@
             card.push(create_card[i]);
             console.log(card);
         }
+
         for (let i = 0; i < card.length; i++) {
             // box
             card_div = document.createElement("div");
@@ -181,7 +174,6 @@
             document.querySelector(".main").append(card_div);
 
             let wrapper = document.getElementsByClassName("wrapper")
-
             search.addEventListener("input", () => {
                 for (let i = 0; i < wrapper.length; i++) {
                     let search_input = wrapper[i]
@@ -198,6 +190,19 @@
 
 
         }
+    </script>
+    <script src="../assets/js/script.js">
+    </script>
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
+    </script>
+    <script src="../components/header.js">
+
+    </script>
+    <script>
+        nav_head()
     </script>
 </body>
 

@@ -17,12 +17,7 @@
   box-sizing: border-box;
   transition: all 0.2s ease-out;
 }
-i {
-  border-radius: 50%;
-  margin-left: 20px;
-  font-size: 24px;
-  cursor: pointer;
-}
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -40,6 +35,16 @@ html {
   background: #fff;
   position: fixed;
 }
+
+#random_img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
 .header .logo {
   font-size: 2.6rem;
   color: var(--black);

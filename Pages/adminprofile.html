@@ -15,7 +15,7 @@
         <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
         <nav class="navbar">
             <a href="./adminlogin.html">Admin</a>
-            <a href="./contact.html">Contact</a>
+            <a href="../Pages/adminpage.html">Create</a>
             <a href="./signup.html">Login</a>
             <a href="#"><i class="fa fa-shopping-cart"></i></a>
         </nav>
@@ -90,58 +90,58 @@
 
 
         // let oneUser = JSON.parse(localStorage.getItem("admin_mail"));
-        let fullArray = JSON.parse(localStorage.getItem("adminhere"));
+        // let fullArray = JSON.parse(localStorage.getItem("adminhere"));
         // let selectedUser = fullArray.find(function (event) {
         //     let emailValue = event["email"];
         //     if (oneUser == emailValue) {
         //         return true;
         //     }
         // });
-        console.log(fullArray);
-        let first_name = document.getElementById("name");
-        let last_name = document.getElementById("surname");
-        let email = document.getElementById("email").value = fullArray[0]["adminEmail"];
+        // console.log(fullArray);
+        // let first_name = document.getElementById("name");
+        // let last_name = document.getElementById("surname");
+        // let email = document.getElementById("email").value = fullArray[0]["adminEmail"];
 
-        let password = document.getElementById("password").value = fullArray[0]["adminPwd"];
-        let img = document.getElementById("image_url")
-        let address = document.getElementById("address");
-        let mobileNumber = document.getElementById("phone_no");
+        // let password = document.getElementById("password").value = fullArray[0]["adminPwd"];
+        // let img = document.getElementById("image_url")
+        // let address = document.getElementById("address");
+        // let mobileNumber = document.getElementById("phone_no");
 
         // email = fullArray["adminEmail"];
-        first_name.placeholder = "fill your first name";
-        last_name.placeholder = "fill your last name";
+        // first_name.placeholder = "fill your first name";
+        // last_name.placeholder = "fill your last name";
         // password = fullArray["adminPwd"];
-        img.placeholder = "fill your image"
-        address.placeholder = "fill your your address";
-        mobileNumber.placeholder = "fill your your mobile number"
+        // img.placeholder = "fill your image"
+        // address.placeholder = "fill your your address";
+        // mobileNumber.placeholder = "fill your your mobile number"
 
-        let photo = document.getElementById("profile")
-        photo.setAttribute("src", fullArray["image"])
+        // let photo = document.getElementById("profile")
+        // photo.setAttribute("src", fullArray["image"])
 
-        let pForm = document.getElementById("form");
-        pForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            let first_name = document.getElementById("name").value;
-            let last_name = document.getElementById("surname").value;
-            let adminEmail = document.getElementById("email").value;
-            let address = document.getElementById("address").value;
-            let mobileNumber = document.getElementById("phone_no").value;
-            let image = document.getElementById("image_url").value;
+        // let pForm = document.getElementById("form");
+        // pForm.addEventListener("submit", function (event) {
+        //     event.preventDefault();
+        //     let first_name = document.getElementById("name").value;
+        //     let last_name = document.getElementById("surname").value;
+        //     let adminEmail = document.getElementById("email").value;
+        //     let address = document.getElementById("address").value;
+        //     let mobileNumber = document.getElementById("phone_no").value;
+        //     let image = document.getElementById("image_url").value;
 
-            let newData = { first_name, last_name, adminEmail, address, mobileNumber, image };
-            let combinedData = Object.assign(fullArray[0], newData);
-            console.log(combinedData);
-            let findIndex = fullArray.indexOf(fullArray);
-            console.log(findIndex);
-            fullArray[findIndex] = combinedData;
-            localStorage.setItem("adminhere", JSON.stringify(fullArray));
+        //     let newData = { first_name, last_name, adminEmail, address, mobileNumber, image };
+        //     let combinedData = Object.assign(fullArray[0], newData);
+        //     console.log(combinedData);
+        //     let findIndex = fullArray.indexOf(fullArray);
+        //     console.log(findIndex);
+        //     fullArray[findIndex] = combinedData;
+        //     localStorage.setItem("adminhere", JSON.stringify(fullArray));
 
-            alert("successfully changed");
-            window.location.href = "./adminpage.html"
+        //     alert("successfully changed");
+        //     window.location.href = "./adminpage.html"
 
 
             // window.location.href = "./doctor0.html";
-        });
+        // });
         // let array = JSON.parse(window.localStorage.getItem("adminhere"))
         // let email_check = JSON.parse(window.localStorage.getItem("adminmail"))
 
@@ -167,7 +167,7 @@
         // })
 
 
-        console.log(profile);
+        // console.log(profile);
 
         // let delete_user = document.getElementById("delete");
         // delete_user.addEventListener("click", function (event) {

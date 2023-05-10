@@ -11,17 +11,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+    <header class="header" id="header">
 
-        <nav class="navbar">
-            <a href="#">home</a>
-            <a href="#">services</a>
-            <a href="#">about</a>
-            <a href="#">doctors</a>
-            <a href="#">blogs</a>
-        </nav>
-        <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <div class="wrapper">
         <!-- <div class="box">
@@ -88,47 +79,15 @@
         </div> -->
 
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="rows">
-                <div class="footer-col">
-                    <h4>Home</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Ratings</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Specialist</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Blogs</h4>
-                    <ul>
-                        <li><a href="#">consult</a></li>
-                        <li><a href="#">packages</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="share">
-                        <a href="#" class="fab fa-youtube"></a>=
-                    </div>
-                </div>
-            </div>
-        </div>
+    <script src="../components/header.js">
 
+    </script>
 
-    </footer>
-    <script src="../assets/js/script.js"></script>
     <script>
-        let blogs = JSON.parse(window.localStorage.getItem("blog"))
+        let read = JSON.parse(window.localStorage.getItem("blog"))
         let card = []
-        for (let i = 0; i < blogs.length; i++) {
-            card.push(blogs[i])
+        for (let i = 0; i < read.length; i++) {
+            card.push(read[i])
         }
         console.log(card);
         for (let i = 0; i < card.length; i++) {
@@ -176,6 +135,15 @@
 
 
         }
+    </script>
+
+
+
+
+
+
+    <script>
+        nav_head()
     </script>
 </body>
 

@@ -102,16 +102,16 @@ html {
   color: rgb(113, 112, 112);
   font-size: 18px;
 }
-.rate {
-  /* padding-left: 3px; */
-  background-color: #00a500;
+/* .rate { */
+/* padding-left: 3px; */
+/* background-color: #00a500;
   color: white;
   width: 40px;
   height: 20px;
   margin-top: 3px;
   padding: 2px 2px;
   text-align: center;
-}
+} */
 body {
   font-family: poppins;
   /* display: flex;
@@ -170,12 +170,6 @@ form.nosubmit {
   border: none;
   /* padding: 0; */
 }
-/* .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: -300px;
-} */
 
 input.nosubmit {
   border: 1px solid #555;
