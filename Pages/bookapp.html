@@ -61,7 +61,7 @@
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
+            <input type="email" id="email" name="email" required>
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" required>
             <label for="date">Date:</label>
@@ -81,7 +81,7 @@
 
 
 
-            <button type="submit" id="submit" value="Submit">Submit</button>
+            <button onclick="sendemail()" type="submit" id="submit" value="Submit">Submit</button>
         </form>
 
     </div>
@@ -146,7 +146,7 @@
 
             let bookarr = []
             let bookname = document.getElementById("name").value
-            let bookemail = document.getElementById("email").value
+            let bookemail = document.getElementById("email").value.toLowerCase();
             let bookphn = document.getElementById("phone").value
             let bookdte = document.getElementById("date").value
             let booktime = document.getElementById("time").value
@@ -177,13 +177,45 @@
             alert("Booked successfully")
             window.location.href = "../Pages/popup.html"
         })
+        function sendemail() {
+            let object = JSON.parse(window.localStorage.getItem("new_card"))
+            console.log(object)
+
+            let doctor_detail = object.find(function (details) {
+                let Doc_id = details["doc_id"]
+                if (Doc_id == getparam) {
+                    return true;
+                }
+            })
+            let docmail = doctor_detail["docmail"]
+            let docname = doctor_detail["name"]
+            let data = {
+                name: document.getElementById("name").value,
+                mail: document.getElementById("email").value.toLowerCase(),
+                date: document.getElementById("date").value,
+                time: document.getElementById("time").value,
+                docmail: docmail,
+                docname: docname
+
+            }
+            emailjs.send("service_ianqf2d", "template_mxo0w6t", data).then(function (res) {
+                alert("success!" + res.status)
+            })
+        }
 
 
 
 
 
 
+    </script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("mvC1ID2HPBhtVdjA0");
+        })();
     </script>
 
 
@@ -197,6 +229,8 @@
 
 
     <script src="../assets/js/script.js">
+
+
     </script>
     <script>
         function profile() {
