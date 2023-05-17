@@ -59,20 +59,20 @@
 
         <form ID="form">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" pattern="[A-Za-z]{1,15}" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             <label for="phone">Phone:</label>
             <input type="text" id="phone" name="phone" required>
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
-            <label for="time">Time:</label>
-            <select id="time" name="time" required>
+            <!-- <label for="time">Time:</label> -->
+            <!-- <select id="time" name="time" required>
                 <option value="">Select a time</option>
                 <option value="morning">Morning</option>
                 <option value="afternoon">Afternoon</option>
                 <option value="evening">Evening</option>
-            </select>
+            </select> -->
             <label for="phone">This in-clinic appointment is for:</label>
             <select id="app_for" name="time" required>
                 <option>Myself</option>
@@ -87,22 +87,35 @@
     </div>
 
     <script>
+
         let urlparam = window.location.search
         let param = new URLSearchParams(urlparam)
-        const getparam = param.get("app_id")
+        const getparam = param.get("doc_id")
         console.log(getparam)
 
-        let object = JSON.parse(window.localStorage.getItem("new_card"))
+        let object = JSON.parse(window.localStorage.getItem("doctor"))
         console.log(object)
 
         let doctor_detail = object.find(function (details) {
-            let Doc_id = details["doc_id"]
+            let Doc_id = details["doctor_id"]
             if (Doc_id == getparam) {
                 return true;
             }
         })
-
         console.log(doctor_detail)
+
+
+        // console.log(doctor_detail["doctorendtime"])
+
+        // let appointmenttime = JSON.parse(localStorage.getItem("timeslotid"))
+
+        // console.log(appointmenttime)
+        // const startHour = parseInt(appointmenttime.split(":")[0]);
+        // const endHour = parseInt(appointmenttime.split(":")[1]);
+
+        let docSlotDetails = " "
+
+
         let box = document.createElement("div")
         box.setAttribute("class", "divone")
         box.innerHTML = ` <h1 class="heading"> In<span> Clinic appointment</span> </h1>
@@ -111,29 +124,29 @@
 
     <div class="box">
         <img id="imageone" class="img1"
-            src= ${doctor_detail["image"]}
-            alt="">
-        <div class="share">
-            <h1 id="h1"> ${doctor_detail["name"]}</h1>
-            <h2 id="h2"> ${doctor_detail["education"]}</h2>
-            <p id="p"> ${doctor_detail["rate"]}</p>
-        </div>
-    </div>
+            src= ${doctor_detail["doctor_img"]}
+        alt = "" >
+            <div class="share">
+                <h1 id="h1"> ${doctor_detail["name"]}</h1>
+                <h2 id="h2"> ${doctor_detail["hosname"]}</h2>
+                <p id="p"> ${doctor_detail["special"]}</p >
+            </div >
+    </div >
 
-</div>
-<div class="box-container">
+</div >
+            <div class="box-container">
 
-    <div class="box">
-        <img id="imagetwo" class="img1"
-            src=${doctor_detail["hosimg"]}
-            alt="">
-        <div class="share">
-            <h1 id="htwo">Cloud hospital</h1>
-            <h2 id="hthree">Bannergha Main Road, Bangalore</h2>
-        </div>
-    </div>
+                <div class="box">
+                    <img id="imagetwo" class="img1"
+                        src=${doctor_detail["hosimg"]}
+                        alt="">
+                        <div class="share">
+                            <h1 id="htwo">${doctor_detail["hosname"]}</h1>
+                            <h2 id="hthree">${doctor_detail["hosadd"]}</h2>
+                        </div>
+                </div>
 
-</div>`
+            </div>`
         document.querySelector(".doctors").append(box)
 
         let submit = document.getElementById("form")
@@ -144,64 +157,63 @@
 
 
 
-            let bookarr = []
+
             let bookname = document.getElementById("name").value
             let bookemail = document.getElementById("email").value.toLowerCase();
             let bookphn = document.getElementById("phone").value
             let bookdte = document.getElementById("date").value
-            let booktime = document.getElementById("time").value
             let bookfor = document.getElementById("app_for").value
             let docname = doctor_detail["name"]
-            let docmail = doctor_detail["docmail"]
-            let docids = doctor_detail["doc_id"]
-            let appid = Date.now()
-            if (localStorage.getItem("appointmentdetails") !== null) {
-                bookarr = JSON.parse(localStorage.getItem("appointmentdetails"))
-            }
+            let docspl = doctor_detail["special"]
+            let docmail = doctor_detail["email"]
+
+
+
+
             let bookobj = {
                 appname: bookname,
                 appemail: bookemail,
                 appphn: bookphn,
                 appdte: bookdte,
-                apptime: booktime,
                 appfor: bookfor,
-                docmail: docmail,
                 docname: docname,
-                docids: docids,
-                appid: appid
+                docspl: docspl,
+                docmail: docmail
+
 
             }
-
-            bookarr.push(bookobj)
-            localStorage.setItem("appointmentdetails", JSON.stringify(bookarr))
-            alert("Booked successfully")
-            window.location.href = "../Pages/popup.html"
-        })
-        function sendemail() {
-            let object = JSON.parse(window.localStorage.getItem("new_card"))
-            console.log(object)
-
-            let doctor_detail = object.find(function (details) {
-                let Doc_id = details["doc_id"]
-                if (Doc_id == getparam) {
+            const url = window.location.search;
+            const url_params = new URLSearchParams(url)
+            const get_id = url_params.get("appids")
+            console.log(get_id)
+            let appointment_details = JSON.parse(localStorage.getItem("appointmentdetails"))
+            console.log(appointment_details)
+            let findapp = appointment_details.find(function (event) {
+                let find = event["appid"]
+                if (find == get_id) {
                     return true;
                 }
             })
-            let docmail = doctor_detail["docmail"]
-            let docname = doctor_detail["name"]
-            let data = {
-                name: document.getElementById("name").value,
-                mail: document.getElementById("email").value.toLowerCase(),
-                date: document.getElementById("date").value,
-                time: document.getElementById("time").value,
-                docmail: docmail,
-                docname: docname
+            console.log(findapp)
+            let check_obj = Object.assign(findapp, bookobj)
+            console.log(check_obj)
 
-            }
-            emailjs.send("service_ianqf2d", "template_mxo0w6t", data).then(function (res) {
-                alert("success!" + res.status)
-            })
-        }
+            let index = appointment_details.indexOf(findapp)
+            console.log(index);
+
+            appointment_details[index] = check_obj
+
+            localStorage.setItem("appointmentdetails", JSON.stringify(appointment_details))
+
+            alert("Booked Successfully")
+            // window.location.href = "./doceducation.html?doctorid=" + findapp["doctor_id"]
+
+
+
+        })
+
+
+
 
 
 
@@ -210,13 +222,6 @@
 
     </script>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("mvC1ID2HPBhtVdjA0");
-        })();
-    </script>
 
 
 

@@ -1,162 +1,145 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
 * {
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  background: rgb(17, 163, 163);
-  overflow: hidden;
-}
-.contain {
-  max-width: 540px;
-  padding: 0 20px;
-  margin: 170px auto;
-  margin-top: 250px;
-}
-.wrap {
-  width: 100%;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
-}
-.wrap .tit {
-  height: 90px;
-  background: #158b8d;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.wrap form {
-  padding: 30px 25px 25px 25px;
-}
-.wrap form .rows {
-  height: 45px;
-  margin-bottom: 15px;
-  position: relative;
-}
-.wrap form .rows input {
-  height: 100%;
-  width: 100%;
+  text-decoration: none;
+  text-transform: capitalize;
   outline: none;
-  padding-left: 60px;
-  border-radius: 5px;
-  border: 1px solid lightgrey;
-  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-out;
 }
 
-.wrap form .rows i {
-  position: absolute;
-  width: 47px;
-  height: 100%;
-  color: #fff;
-  font-size: 18px;
-  background: #158b8d;
-  border-radius: 5px 0 0 5px;
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 2rem 9%;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  z-index: 1000;
+  /* box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1); */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  /* background: #fff; */
+  /* position: fixed; */
+  margin-left: -80px;
 }
-.wrap form .password {
-  margin: -8px 0 20px 0;
+.header .logo {
+  font-size: 2.6rem;
+  color: var(--black);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-.wrap form .password a {
-  color: #158b8d;
-  font-size: 17px;
-  text-decoration: none;
+.header .logo i {
+  color: var(--aqua);
 }
-.wrap form .password a:hover {
-  text-decoration: underline;
+.header a {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  margin-left: 2rem;
 }
-.wrap form .button a {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  /* margin-left: 370px; */
-  background: #158b8d;
-  text-decoration: none;
-  padding: 5px 10px;
+
+.header .navbar a:hover {
+  color: var(--aqua);
+}
+#menu-btn {
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--blue);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+body {
+  background-image: url("../images/Patients\ are\ looking\ for\ doctors\ like\ you\ \(2\).png");
+}
+
+form {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  margin-top: 5px;
+  margin-left: 100px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="password"],
+#gender,
+#special_in,
+#phone_no {
+  display: block;
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.submit {
+  background-color: #51b08d;
+  color: white;
+  padding: 10px 20px;
+  width: 50%;
   display: flex;
   justify-content: center;
-  border-radius: 7px;
-}
-form .button a:hover {
-  background: rgb(17, 163, 163);
-}
-.signup {
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
   cursor: pointer;
 }
-.wrap form .signup {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 17px;
-}
-.wrap form .signup a {
-  color: #158b8d;
-  text-decoration: none;
-}
-form .signup a:hover {
-  text-decoration: underline;
-}
-button {
-  padding: 5px 10px;
-  background-color: rgb(17, 163, 163);
-  border: none;
-  color: aliceblue;
-  font-size: 15px;
-}
-.wrap form .button {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  /* margin-left: 370px; */
-  /* background: #158b8d; */
-  text-decoration: none;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  border-radius: 7px;
+
+.submit:hover {
+  background-color: rgb(39, 88, 81);
 }
 
-#fname:valid {
+label {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+input[type="text"]:valid {
   border-color: green;
 }
 
-#fname:focus:invalid {
+input[type="text"]:focus:invalid {
   border-color: red;
 }
 
-#lname:valid {
+input[type="email"]:valid {
   border-color: green;
 }
 
-#lname:focus:invalid {
-  border-color: red;
-}
-#email:valid {
-  border-color: green;
-}
-
-#email:focus:invalid {
-  border-color: red;
-}
-#pass:valid {
-  border-color: green;
-}
-
-#pass:focus:invalid {
+input[type="email"]:focus:invalid {
   border-color: red;
 }
 
-#passwd:valid {
+input[type="password"]:valid {
   border-color: green;
 }
 
-#passwd:focus:invalid {
+input[type="password"]:focus:invalid {
   border-color: red;
 }

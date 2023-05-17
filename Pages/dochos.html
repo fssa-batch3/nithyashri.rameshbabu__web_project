@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/dochos.css">
+</head>
+
+<body>
+    <form id="dochos">
+        <h1>Hospital_details</h1>
+        <label for="username">Hospital name</label>
+        <input type="text" id="hosname" pattern="^(?=.{0,50}$)[A-Za-z]+(?:\s[A-Za-z]+){0,3}$" required>
+        <label for="username">Hospital Address</label>
+        <input type="text" id="hosadd"
+            pattern="^(?=.{0,200}$)[A-Za-z0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+(?:\s[A-Za-z0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+){0,10}$"
+            required>
+        <div>
+            <span id="displaytime"> <label for="username">Doctor's availability</label> <label for="username">Doctor's
+                    availability</label></span>
+            <span id="time"><select id="doctor-availability">
+                    <option value="" disabled selected>Enter your starting time</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 AM">12:00 AM</option>
+                    <option value="13:00 PM">13:00 PM</option>
+                    <option value="14:00 PM">14:00 PM</option>
+                    <option value="15:00 PM">15:00 PM</option>
+                    <option value="16:00 PM">16:00 PM</option>
+                    <option value="17:00 PM">17:00 PM</option>
+                    <option value="18:00 PM">18:00 PM</option>
+                    <option value="19:00 PM">19:00 PM</option>
+                    <option value="20:00 PM">20:00 PM</option>
+                    <option value="21:00 PM">21:00 PM</option>
+                </select>
+                <select id="doctor-endavailability">
+                    <option value="" disabled selected>Enter your ending time</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 AM">12:00 AM</option>
+                    <option value="13:00 PM">13:00 PM</option>
+                    <option value="14:00 PM">14:00 PM</option>
+                    <option value="15:00 PM">15:00 PM</option>
+                    <option value="16:00 PM">16:00 PM</option>
+                    <option value="17:00 PM">17:00 PM</option>
+                    <option value="18:00 PM">18:00 PM</option>
+                    <option value="19:00 PM">19:00 PM</option>
+                    <option value="20:00 PM">20:00 PM</option>
+                    <option value="21:00 PM">21:00 PM</option>
+                </select></span>
+
+
+            <label for="username">Hospital img</label>
+            <input type="text" id="hosimg" required>
+            <label for="username">Consultation fee</label>
+            <input type="text" id="docfee" placeholder=" ₹"
+                pattern="^(?=.{0,200}$)[0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+(?:\s[0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+){0,10}$"
+                required>
+            <button id="submit" type="submit">Continue</button>
+    </form>
+
+
+
+
+
+
+    <script>
+        let form = document.getElementById("dochos")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let hosname = document.getElementById("hosname").value;
+            let hosadd = document.getElementById("hosadd").value;
+            let doctortime = document.getElementById("doctor-availability").value;
+            let doctorendtime = document.getElementById("doctor-endavailability").value;
+            let hosimg = document.getElementById("hosimg").value;
+            let docfee = document.getElementById("docfee").value;
+
+            let dochos_data = {
+                hosname: hosname,
+                hosadd: hosadd,
+                docslot: doctortime,
+                doctorendtime: doctorendtime,
+                hosimg: hosimg,
+                docfee: docfee
+
+
+            }
+            const url = window.location.search;
+            const url_params = new URLSearchParams(url)
+            const get_id = url_params.get("doctorid")
+            console.log(get_id)
+            let docdetails = JSON.parse(localStorage.getItem("doctor"))
+            console.log(docdetails)
+            let finddoc = docdetails.find(function (event) {
+                let find = event["doctor_id"]
+                if (find == get_id) {
+                    return true;
+                }
+            })
+            // console.log(finddoc)
+            let check_obj = Object.assign(finddoc, dochos_data)
+            console.log(check_obj)
+
+            let index = docdetails.indexOf(finddoc)
+            console.log(index);
+
+            docdetails[index] = check_obj
+
+            localStorage.setItem("doctor", JSON.stringify(docdetails))
+
+            alert("Step 4 completed")
+            window.location.href = "./docapprove.html?doctorid=" + finddoc["doctor_id"]
+
+
+
+        })
+    </script>
+</body>
+
+</html>

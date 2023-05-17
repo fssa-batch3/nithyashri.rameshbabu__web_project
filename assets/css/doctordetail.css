@@ -196,6 +196,19 @@ html {
   background-color: #ffffff;
   color: #000;
 }
+.btn {
+  color: #188d7d;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(207, 253, 255, 0.41);
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.btn:active {
+  background-color: rgb(61, 172, 146);
+  color: white;
+}
 
 @media screen and (max-width: 992px) {
   .product-div {

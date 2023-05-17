@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/approvedoc2.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="all">
+            <h1>Doctor details</h1>
+            <img class="docimg"
+                src="https://imagesx.practo.com/providers/dr-premalatha-balachandran-obstetrician-chennai-f1207a3d-9bb4-4a8e-9641-91a6e372b1ca.jpg?i_type=t_100x100-2x">
+            <div class="details">
+                <div>
+                    <h2>Personal details</h2>
+                    <p>Dr. John Smith</p>
+                    <p>Email: johnsmith@doctors.com</p>
+                    <p>Phone: 555-555-5555</p>
+                    <p>Gender:Female</p>
+                </div>
+                <div>
+                    <h2>Specialty</h2>
+                    <p>Cardiology</p>
+                    <p>10 years in practice</p>
+                </div>
+                <div>
+                    <h2>Medical registration</h2>
+                    <p>Registration Number: 123536</p>
+                    <p>Registration Council:Madras council</p>
+                    <p>Registration year: 2004</p>
+                </div>
+                <div>
+                    <h2>Education</h2>
+                    <p>Degree: BMGS</p>
+                    <p>College: Madras medical college</p>
+                    <p>Year of completion: 2014</p>
+                </div>
+                <div>
+                    <h2>Identity proof</h2>
+                    <p>Aadhar_no : 1234 5688 9988</p>
+                    <p>Aadhar_Image :</p>
+                </div>
+                <div>
+                    <h2>Hospital details</h2>
+                    <p>Hospital name : Vijaya Hospital </p>
+                    <p>Hospital image :</p>
+                    <p>Doctor's availability : 2.00 to 4.00</p>
+                    <p>Doctor fee : 500rps</p>
+                </div>
+            </div>
+
+            <button class="approve-btn">Approve</button> <span> <button class="decline_btn">Decline</button></span>
+        </div> -->
+
+    </div>
+
+
+
+    <script>
+        let doctor = JSON.parse(localStorage.getItem("doctor"))
+        console.log(doctor)
+        let url = window.location.search
+        let getid = new URLSearchParams(url)
+        let id = getid.get("doctorid")
+        console.log(id)
+
+        let findobj = doctor.find(e => e["doctor_id"] == id)
+        console.log(findobj)
+        let findobjindex = doctor.indexOf(findobj)
+        console.log(findobjindex)
+        let box = document.createElement("div")
+        box.setAttribute("class", "all")
+        box.innerHTML = `<h1>Doctor details</h1>
+            <img class="docimg"
+                src=${findobj["doctor_img"]}>
+            <div class="details">
+                <div>
+                    <h2>Personal details</h2>
+                    <p>Name: ${findobj["name"]}</p>
+                    <p>Email: ${findobj["mail"]}</p>
+                    <p>Phone: ${findobj["mob"]}</p>
+                    <p>Gender:${findobj["gender"]}</p>
+                </div>
+                <div>
+                    <h2>Specialty</h2>
+                    <p>Special_in: ${findobj["special"]}</p>
+                    <p>Experience :${findobj["Experience"]}</p>
+                </div>
+                <div>
+                    <h2>Medical registration</h2>
+                    <p>Registration Number: ${findobj["registrationno"]}</p>
+                    <p>Registration Council: ${findobj["registrationcouncil"]}</p>
+                    <p>Registration year: ${findobj["registrationyr"]} </p>
+                </div>
+                <div>
+                    <h2>Education</h2>
+                    <p>Degree:   ${findobj["degree"]} </p>
+                    <p>College:  ${findobj["college"]}</p>
+                    <p>Completion year: ${findobj["yearofcomplete"]}</p>
+                </div>
+                <div>
+                    <h2>Identity proof</h2>
+                    <p>Aadhar_no :  ${findobj["aadharproof"]} </p>
+                    <img class="addimg"
+                src=${findobj["aadhar_img"]}>
+                </div>
+                <div>
+                    <h2>Hospital details</h2>
+                    <p>Hospital name :  ${findobj["hosname"]} </p>
+                    <img class="hosimg"
+                src=${findobj["hosimg"]}>
+                    <p>Doctor's availability :  ${findobj["docslot"]} - ${findobj["doctorendtime"]} </p>
+                    <p>Doctor fee : ${findobj["docfee"]}</p>
+                </div>
+            </div>
+
+            <button  class="approve-btn">Approve</button> <span> <button class="decline-btn">Decline</button></span>`
+
+        document.querySelector(".container").append(box)
+        let buton = document.querySelector(".approve-btn")
+        console.log(buton)
+        buton.addEventListener("click", (e) => {
+            let op = "yes"
+            let approveobj = { approve: op }
+            console.log(approveobj)
+            let approveassign = Object.assign(findobj, approveobj)
+            console.log(approveassign)
+            doctor[findobjindex] = approveassign
+            localStorage.setItem("doctor", JSON.stringify(doctor))
+            alert("You have been approved doctor")
+            window.location.href = "./verifieddoctors.html"
+        })
+        let nobutton = document.querySelector(".decline-btn")
+        console.log(nobutton)
+        nobutton.addEventListener("click", (e) => {
+            let op = "no"
+            let approveobj = { approve: op }
+            console.log(approveobj)
+            let approveassign = Object.assign(findobj, approveobj)
+            console.log(approveassign)
+            doctor[findobjindex] = approveassign
+            localStorage.setItem("doctor", JSON.stringify(doctor))
+
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

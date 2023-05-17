@@ -6,7 +6,7 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: rgb(17, 163, 163);
+  background: #8dc3b6;
   overflow: hidden;
 }
 .contain {
@@ -23,7 +23,7 @@ body {
 }
 .wrap .tit {
   height: 90px;
-  background: #158b8d;
+  background: #57a693;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -56,7 +56,7 @@ body {
   height: 100%;
   color: #fff;
   font-size: 18px;
-  background: #158b8d;
+  background: #57a693;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ body {
 .wrap form .password {
   margin: -8px 0 20px 0;
 }
-.wrap form .password a {
+.wrap form .password {
   color: #158b8d;
   font-size: 17px;
   text-decoration: none;
@@ -73,17 +73,15 @@ body {
 .wrap form .password a:hover {
   text-decoration: underline;
 }
-.wrap form .button a {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  /* margin-left: 370px; */
-  background: #158b8d;
-  text-decoration: none;
+.wrap form button {
   padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  border-radius: 7px;
+  background-color: #57a693;
+  border: none;
+  color: aliceblue;
+  font-size: 15px;
+  background: #57a693;
+  width: 200%;
+  border-radius: 10px;
 }
 form .button a:hover {
   background: rgb(17, 163, 163);
@@ -97,7 +95,7 @@ form .button a:hover {
   font-size: 17px;
 }
 .wrap form .signup a {
-  color: #158b8d;
+  color: #57a693;
   text-decoration: none;
 }
 form .signup a:hover {
@@ -105,7 +103,7 @@ form .signup a:hover {
 }
 button {
   padding: 5px 10px;
-  background-color: rgb(17, 163, 163);
+  background-color: #57a693;
   border: none;
   color: aliceblue;
   font-size: 15px;
@@ -114,8 +112,7 @@ button {
   color: #fff;
   font-size: 20px;
   font-weight: 500;
-  /* margin-left: 370px; */
-  /* background: #158b8d; */
+
   text-decoration: none;
   padding: 5px 10px;
   display: flex;

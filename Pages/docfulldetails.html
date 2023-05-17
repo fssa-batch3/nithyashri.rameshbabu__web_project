@@ -6,12 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Link css -->
     <link rel="stylesheet" href="../assets/css/doctor.css">
-</head>
 
 <body>
     <header class="header" id="header">
@@ -111,60 +106,8 @@
         </div> -->
     </div>
     <script>
-
-        let getid = JSON.parse(localStorage.getItem("user_id"))
-        document.addEventListener("DOMContentLoaded", function () {
-            let Box = document.querySelector(".main")
-            let getarry = JSON.parse(localStorage.getItem("doctor"))
-            let yes = "yes"
-            let doctors = getarry.filter((e) => e.approve === yes)
-            console.log(doctors)
-            doctors.forEach(function (element) {
-                card_div = document.createElement("div");
-                card_div.setAttribute("class", "wrapper");
-                // a tag
-                div1 = document.createElement("div");
-                div1.setAttribute("class", "img1");
-                card_div.append(div1);
-                // image
-                image = document.createElement("img");
-                image.setAttribute("class", "img1");
-                image.setAttribute("src", element["doctor_img"]);
-                image.setAttribute("alt", "image");
-                div1.append(image);
-                // star
-                div2 = document.createElement("div");
-                card_div.append(div2);
-                // rating
-                heading = document.createElement("h2");
-                heading.setAttribute("id", "user");
-                heading.innerText = element["name"]
-                div2.append(heading);
-                // title
-                passage = document.createElement("p");
-                passage.setAttribute("class", "content");
-                passage.innerText = element["special"]
-                div2.append(passage);
-                // a tag
-                passage2 = document.createElement("p");
-                passage2.setAttribute("class", "rate");
-                passage2.innerText = element["hosname"]
-                div2.append(passage2);
-                // button
-                btn = document.createElement("div");
-                card_div.append(btn);
-
-                a = document.createElement("a");
-                a.setAttribute("class", "btn");
-                a.setAttribute("href", "../Pages/doctordetail.html?doc_id=" + element["doctor_id"] + "&user_id=" + getid)
-                a.innerText = "Consult Now"
-                btn.append(a);
-                document.querySelector(".main").append(card_div);
-
-            }
-            )
-        });
         let card = []
+
         let card_div;
         let div1;
         let image;
@@ -175,7 +118,7 @@
         let btn;
         let a;
 
-        let create_card = JSON.parse(localStorage.getItem("doctor"));
+        let create_card = JSON.parse(localStorage.getItem("new_card"));
         console.log(create_card);
         for (let i = 0; i < create_card.length; i++) {
             card.push(create_card[i]);
@@ -184,6 +127,46 @@
 
         for (let i = 0; i < card.length; i++) {
             // box
+            card_div = document.createElement("div");
+            card_div.setAttribute("class", "wrapper");
+            // a tag
+            div1 = document.createElement("div");
+            div1.setAttribute("class", "img1");
+            card_div.append(div1);
+            // image
+            image = document.createElement("img");
+            image.setAttribute("class", "img1");
+            image.setAttribute("src", card[i]["image"]);
+            image.setAttribute("alt", "image");
+            div1.append(image);
+            // star
+            div2 = document.createElement("div");
+            card_div.append(div2);
+            // rating
+            heading = document.createElement("h2");
+            heading.setAttribute("id", "user");
+            heading.innerText = card[i]["name"]
+            div2.append(heading);
+            // title
+            passage = document.createElement("p");
+            passage.setAttribute("class", "content");
+            passage.innerText = card[i]["education"]
+            div2.append(passage);
+            // a tag
+            passage2 = document.createElement("p");
+            passage2.setAttribute("class", "rate");
+            passage2.innerText = card[i]["rate"]
+            div2.append(passage2);
+            // button
+            btn = document.createElement("div");
+            card_div.append(btn);
+
+            a = document.createElement("a");
+            a.setAttribute("class", "btn");
+            a.setAttribute("href", "../Pages/doctordetail.html?user_id=" + card[i]["doc_id"])
+            a.innerText = "Consult Now"
+            btn.append(a);
+            document.querySelector(".main").append(card_div);
 
             let wrapper = document.getElementsByClassName("wrapper")
             search.addEventListener("input", () => {
@@ -197,8 +180,6 @@
                     }
                 }
             })
-
-
 
 
 

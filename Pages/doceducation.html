@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/doceducation.css">
+</head>
+
+<body>
+    <form id="docedu">
+        <h1>Educational_Qualification</h1>
+        <label for="username">Degree</label>
+        <select id="degree" required>
+            <option value="" disabled selected>Select your degree</option>
+            <option value="MBBS">MBBS</option>
+            <option value="BDS">BDS</option>
+            <option value="BAMS">BAMS</option>
+            <option value="BUMS">BUMS
+            </option>
+            <option value="BHMS">BHMS
+            </option>
+        </select>
+        <label for="username">College/Institution</label>
+        <select id="college" required>
+            <option value="" disabled selected>Select your college</option>
+            <option value="Madras medical college">Madras medical college</option>
+            <option value="Government medical college">Government medical college</option>
+            <option value="Bangalore medical college">Bangalore medical college</option>
+            <option value="Kolkata medical college">Kolkata medical college
+            </option>
+        </select>
+        <label for="username">year of completion</label>
+        <select id="exyear" required>
+            <option value="" disabled selected>Type year of completion</option>
+        </select>
+        <label for="username">Year of experience</label>
+        <input type="text" id="exnum" maxlength="2" required>
+
+
+        <h1>Identity_Proof</h1>
+        <label for="name">Aadhar_no</label><br />
+        <input type="text" id="aadhar_no" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}" placeholder="xxxx xxxx xxxx" required
+            title="Please enter a valid Aadhaar number in the format xxxx xxxx xxxx" required /><br />
+        <label for="postalcode">Aadhar image</label><br />
+        <input class="postalcode" id="aadhar_image" required /><br />
+
+        <label for="postalcode">Doctor image</label><br />
+        <input type="url" class="postalcode" id="image_url" required /><br />
+
+        <button id="submit" type="submit">Continue</button>
+    </form>
+
+    <script>
+        let currentYear = new Date().getFullYear();
+        let yeardropdown = document.getElementById("exyear");
+        for (let i = currentYear; i >= 1923; i--) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.text = i;
+            yeardropdown.appendChild(option);
+        }
+
+        let form = document.getElementById("docedu")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let degree = document.getElementById("degree").value;
+            let college = document.getElementById("college").value;
+            let exyear = document.getElementById("exyear").value;
+            let exnum = document.getElementById("exnum").value;
+            let aadhar_no = document.getElementById("aadhar_no").value;
+            let aadhar_img = document.getElementById("aadhar_image").value;
+            let images = document.getElementById("image_url").value;
+            let docedu_data = {
+                degree: degree,
+                college: college,
+                yearofcomplete: exyear,
+                Experience: exnum,
+                aadharproof: aadhar_no,
+                aadhar_img: aadhar_img,
+                doctor_img: images
+
+            }
+            const url = window.location.search;
+            const url_params = new URLSearchParams(url)
+            const get_id = url_params.get("doctorid")
+            console.log(get_id)
+            let docdetails = JSON.parse(localStorage.getItem("doctor"))
+            console.log(docdetails)
+            let finddoc = docdetails.find(function (event) {
+                let find = event["doctor_id"]
+                if (find == get_id) {
+                    return true;
+                }
+            })
+            // console.log(finddoc)
+            let check_obj = Object.assign(finddoc, docedu_data)
+            console.log(check_obj)
+
+            let index = docdetails.indexOf(finddoc)
+            console.log(index);
+
+            docdetails[index] = check_obj
+
+            localStorage.setItem("doctor", JSON.stringify(docdetails))
+
+            alert("Step 3 completed")
+            window.location.href = "./dochos.html?doctorid=" + finddoc["doctor_id"]
+
+
+
+        })
+    </script>
+</body>
+
+</html>
