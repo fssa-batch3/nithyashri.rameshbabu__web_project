@@ -18,11 +18,38 @@
   transition: all 0.2s ease-out;
 }
 
+#random_img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 40px;
+  cursor: pointer;
+}
 html {
   font-size: 62.5%;
   overflow-x: hidden;
   /* scroll-padding-top: 7rem;
   scroll-behavior: smooth; */
+}
+
+.span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.imgdoc {
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 130px;
+}
+#docrandom_img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 40px;
+  cursor: pointer;
 }
 .header {
   padding: 2rem 9%;
@@ -62,6 +89,7 @@ html {
   cursor: pointer;
   display: none;
 }
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -81,8 +109,8 @@ html {
   text-align: center;
 }
 .wrapper .box .icons {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   /* background-color: #fff; */
   display: flex;
   justify-content: center;
@@ -93,7 +121,9 @@ html {
   font-weight: 700;
   transition: 1s;
   color: #fff;
+  border: 1px solid black;
 }
+
 .wrapper .box :nth-child(1).icons {
   box-shadow: 0 0 0 var(--aqua);
   background-color: var(--aqua);
@@ -104,13 +134,12 @@ html {
 .wrapper .box .content {
   margin-top: 10px;
 }
-.wrapper .box .content h3 {
+h3 {
   font-size: 20px;
 }
-.wrapper .box .content p {
-  font-size: 13px;
-  margin: 0;
-  padding: 0;
+p {
+  font-size: 15px;
+  font-family: poppins;
 }
 .wrapper .box .content a {
   display: inline-block;
@@ -135,6 +164,10 @@ html {
 }
 ul {
   list-style: none;
+}
+.btn {
+  margin: 10px;
+  padding: 5px 15px;
 }
 .rows {
   display: flex;
@@ -164,7 +197,7 @@ ul {
   line-height: 4.5rem;
   border-radius: 50%;
   font-size: 2rem;
-  color: rgb(0, 99, 99);
+  color: rgb(83, 150, 117);
   margin: 0.3rem;
   text-align: center;
   /* background: rgb(150, 223, 223); */

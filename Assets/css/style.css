@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100&family=Poppins:wght@100;300;400;500;700&display=swap");
 :root {
-  --aqua: rgb(17, 163, 163);
+  --aqua: #60a995;
   --black: #444;
   --light-color: #777;
-  --box-shadow: 0.5rem 0.5rem 0 rgb(17, 163, 163);
+  --box-shadow: 0.5rem 0.5rem 0 #60a995;
   --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
   --border: 0.2rem solid var(--green);
 }
@@ -69,12 +69,13 @@ section {
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  padding-top: 4rem;
+  padding-top: 5rem;
   background-color: rgb(242, 242, 242);
 }
 .home .pic img {
   width: 100%;
 }
+
 .home .pic {
   flex: 1 1 45rem;
 }
@@ -99,8 +100,8 @@ section {
   border: var(--border);
   border-radius: 0.5rem;
   /* box-shadow: var(--box-shadow); */
-  border: 2px solid rgb(188, 255, 255);
-  background-color: rgb(188, 255, 255);
+  border: 2px solid #b8d7ce;
+  background-color: #b8d7ce;
   border-radius: 20px;
   color: var(--black);
   cursor: pointer;
@@ -118,7 +119,6 @@ section {
 }
 
 .btn:hover {
-  background: rgb(188, 255, 255);
   color: rgb(0, 0, 0);
 }
 
@@ -127,37 +127,7 @@ section {
   background: #fff;
   margin-left: 2rem;
 }
-.icons-container {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #fff;
-}
-.icons-container .icons {
-  /* border: var(--border); */
-  /* box-shadow: var(--box-shadow); */
-  border-radius: 0.5rem;
-  text-align: center;
-  padding: 2.5rem;
-  border: 1px solid;
-}
-.icons-container .icons i {
-  font-size: 4.5rem;
-  color: #000000;
-  padding-bottom: 0.7rem;
-}
-.icons-container .icons h3 {
-  font-size: 4rem;
-  color: #158b8d;
-  padding: 0.5rem 0;
-}
 
-.icons-container .icons p {
-  font-size: 1.7rem;
-  color: var(--light-color);
-}
 .heading {
   color: black;
   text-transform: capitalize;
@@ -207,12 +177,12 @@ section {
   gap: 2rem;
 }
 .doctors {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(255, 255, 255);
 }
 
 .doctors .box-container .box {
   text-align: center;
-  background: #fff;
+  background: #d5ebe5;
   padding: 2rem;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
   margin: 10px;
@@ -226,7 +196,14 @@ section {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
+#random_img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 40px;
+  cursor: pointer;
+}
 .doctors .box-container .box h3 {
   color: var(--black);
   font-size: 2.5rem;
@@ -258,7 +235,7 @@ section {
 .boxes {
   width: 900px;
   margin: 60px auto;
-  background: #fff;
+  background: #cde8e0;
   border-radius: 7px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -267,7 +244,7 @@ section {
   background-color: #eee;
   border-radius: 7px 7px 0px 0px;
   padding: 10px;
-  color: rgb(33, 144, 144);
+  /* color: rgb(33, 144, 144); */
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 4rem;
@@ -276,11 +253,6 @@ section {
 
 .faqs {
   padding: 0px 20px 20px;
-}
-
-::-webkit-details-marker {
-  float: right;
-  margin-top: 3px;
 }
 
 details {

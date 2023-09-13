@@ -13,18 +13,8 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+    <header class="header" id="header">
 
-        <nav class="navbar">
-            <a href="./index.html">Home</a>
-            <a href="#">services</a>
-            <a href="#">Doctors</a>
-            <a href="#">Contact</a>
-            <a href="./Pages/services.html">Blogs</a>
-            <a href="./Pages/login.html">Login</a>
-        </nav>
-        <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <!-- section starts -->
     <section class="home" id="home">
@@ -34,7 +24,8 @@
         <div class="content">
             <h3>Not sure which doctor to consult?</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sed autem vero? Magnam, est laboriosam!</p>
-            <a href="#" class="btn">Know more details on specialities<span class="fas fa-chevron-right"></span> </a>
+            <a href="../index.html" class="btn">Know more details on specialities<span
+                    class="fas fa-chevron-right"></span> </a>
         </div>
     </section>
     <!-- section ends -->
@@ -136,6 +127,9 @@
                 </div>
             </div>
         </div>
+
+
+
     </footer>
 
 
@@ -143,32 +137,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="../assets/js/script.js">
+    </script>
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
+    </script>
+
+    <script src="../components/header.js">
+    </script>
+    <script>
+        nav_head()
     </script>
 </body>
 

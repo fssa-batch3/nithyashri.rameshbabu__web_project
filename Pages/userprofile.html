@@ -6,205 +6,159 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="../assets/css/userprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+    <header class="header" id="header">
+
+    </header>
     <div class="wholeprofilecontainer">
-        <div class="userimg">
-            <img class="userimground" src="../assets/images/2127712-middle-removebg-preview.png" alt="" />
-        </div>
         <div class="userdetails">
-            <h1 class="profileh1">Profile Settings</h1>
+
+            <h1 class="profileh1">Edit profile</h1>
             <form id="form">
-                <!-- <div class="namesurflex"> -->
-                <div>
-                    <label for="name">First Name</label><br />
-                    <input type="text" id="name" placeholder=" enter your name" /><br />
-                </div>
-                <div>
-                    <label for="surname">Last name</label><br />
-                    <input type="text" class="surname" id="surname" placeholder=" enter your last name" /><br />
-                </div>
-                <!-- </div> -->
+                <img alt="" id="profile">
+
+                <label for="name">First Name</label><br />
+                <input type="text" id="name" placeholder=" enter your name" required /><br />
+
+
+                <label for="surname">Last name</label><br />
+                <input type="text" class="surname" id="surname" placeholder=" enter your last name" required /><br />
+
                 <label for="emailid">Email ID</label><br />
-                <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" /><br />
+                <input type="email" class="emailid" id="email" placeholder=" enter your Email ID" required /><br />
 
                 <label for="postalcode">Password</label><br />
-                <input class="postalcode" id="password" /><br />
+                <input type="password" class="postalcode" id="password" required /><br />
                 <label for="postalcode">Address</label><br />
-                <input class="postalcode" id="address" /><br />
+                <input class="postalcode" id="address" required /><br />
                 <label for="postalcode">Mobile number</label><br />
-                <input class="postalcode" id="phone_no" /><br />
-                <!-- <select>
-                    <option value="male">Female</option>
-                    <option value="male">Male</option>
-                    <option value="male">Other</option>
-                </select> -->
-                <button class="submit" type="submit">Submit</button>
+                <input class="postalcode" id="phone_no" type="tel"
+                    pattern="^(?:\+1)?[ -]?\(?([0-9]{3})\)?[ -]?([0-9]{3})[ -]?([0-9]{4})$"
+                    title="Must contain 10 numbers" required /><br />
+                <label for="postalcode">Upload image</label><br />
+                <input class="postalcode" id="image_url" required /><br />
+                <button class="submit" type="submit">Save</button>
                 <button class="submit" type="submit" id="delete">Delete</button>
             </form>
         </div>
-
-        <script>
-
-            // let userprofile = JSON.parse(window.localStorage.getItem("login_user"))
-            // console.log(userprofile)
-            // document.getElementById("name").value = userprofile[0]["fname"];
-            // document.getElementById("surname").value = userprofile[0]["lname"];
-            // document.getElementById("email").value = userprofile[0]["email"];
-            // document.getElementById("password").value = userprofile[0]["password"];
-            // const user_email = JSON.parse(window.localStorage.getItem("login_user"))
-            // const user_details = JSON.parse(window.localStorage.getItem("user"))
-            // let get_obj = user_details.find(function (user_obj) {
-            //     let check_email = user_obj["email"]
-            //     if (user_email === check_email) {
-            //         return true;
-            //     }
-            // });
-            // console.log(get_obj)
-            // const fname = document.getElementById("name");
-            // const lname = document.getElementById("surname");
-            // const mail = document.getElementById("email");
-            // const address = document.getElementById("address");
-            // const mobileNumber = document.getElementById("phone_no");
-
-            // fname.value = get_obj["fname"];
-            // lname.value = get_obj["lname"];
-            // mail.value = user_email;
-            // address.value = get_obj["address"];
-            // mobileNumber.value = get_obj["phone_no"]
-
-            // let form = document.getElementById("form");
-            // form.addEventListener("submit", function (event) {
-            //     event.preventDefault()
-            //     let fname = document.getElementById("name").value;
-            //     let lname = document.getElementById("surname").value;
-            //     let mail = document.getElementById("email").value;
-            //     let phone = document.getElementById("phone_no").value;
-
-
-            //     let new_data = {
-            //         fname,
-            //         lname,
-            //         mail,
-            //         phone,
-            //     };
-            //     // if( mail.value != user_email ){
-            //     //   alert("You can't change the email-id")
-            //     //   return
-            //     // }
-            //     let updates = Object.assign(get_obj, new_data);
-            //     console.log(updates);
-            //     let index = user_details.indexOf(get_obj)
-            //     // console.log(index);
-            //     user_details[index] = updates;
-            //     localStorage.setItem("user", JSON.stringify(user_details))
-            //     alert("You have successfully updated your account details!");
-
-            // });
-            // // const user_email = JSON.parse(window.localStorage.getItem("details"))
-            // // let check = true;
-            // // const present_details = JSON.parse(window.localStorage.getItem("user"))
-            // // let get_present = user_details.find(function (user_obj) {
-            // //     let check_email = user_obj["email"]
-            // //     if (user_email === check_email) {
-            // //         let fname1 = document.getElementById("name");
-            // //         let lname1 = document.getElementById("surname");
-            // //         let mail1 = document.getElementById("email");
-            // //         let phone1 = document.getElementById("phone_no");
-
-            // //         fname1.value = user_obj["fname"];
-            // //         lname1.value = user_obj["lname"];
-            // //         mail1.value = user_obj["email"];
-            // //         phone1.value = user_obj["phone_no"];
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="rows">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Ratings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Specialist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Blogs</h4>
+                    <ul>
+                        <li><a href="#">consult</a></li>
+                        <li><a href="#">packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="share">
+                        <a href="#" class="fab fa-youtube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+    <script>
 
 
-            // //     }
-            // // });
-            // let delete_user = document.getElementById("delete")
-            // delete_user.addEventListener("click", function (event) {
-            //     event.preventDefault()
-            //     let index = user_details.indexOf(get_obj)
-            //     let msg = confirm("Are you sure you want to delete this account")
-            //     if (msg !== true) {
-            //         return
-            //     } else {
-            //         user_details.splice(index, 1)
-            //         console.log(user_details);
-            //         localStorage.setItem("user", JSON.stringify(user_details))
-            //         window.location.href = "../pages/login.html";
-            //     }
-            // });
+        let oneUser = JSON.parse(localStorage.getItem("login_user"));
+        // for array
+        let fullArray = JSON.parse(localStorage.getItem("user"));
+        let selectedUser = fullArray.find(function (event) {
+            let emailValue = event["email"];
+            if (oneUser == emailValue) {
+                return true;
+            }
+        });
+        console.log(selectedUser);
+        let first_name = document.getElementById("name");
+        let last_name = document.getElementById("surname");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let img = document.getElementById("image_url")
+        let address = document.getElementById("address");
+        let mobileNumber = document.getElementById("phone_no");
 
-            let oneUser = JSON.parse(localStorage.getItem("login_user"));
-            // for array
-            let fullArray = JSON.parse(localStorage.getItem("user"));
-            let selectedUser = fullArray.find(function (event) {
-                let emailValue = event["email"];
-                if (oneUser == emailValue) {
-                    return true;
-                }
-            });
-            console.log(selectedUser);
-            let first_name = document.getElementById("name");
-            let last_name = document.getElementById("surname");
-            let email = document.getElementById("email");
-            // let address = document.getElementById("address");
-            // let mobileNumber = document.getElementById("phone_no");
+        email.value = selectedUser["email"];
+        first_name.value = selectedUser["fname"];
+        last_name.value = selectedUser["lname"];
+        password.value = selectedUser["password"];
+        img.value = selectedUser["image"]
+        address.value = selectedUser["address"];
+        mobileNumber.value = selectedUser["mobileNumber"]
 
-            email.value = selectedUser["email"];
-            first_name.value = selectedUser["fname"];
-            last_name.value = selectedUser["lname"];
-            // address.value = selectedUser["address"];
-            // mobileNumber.value = selectedUser["phone_no"]
+        let photo = document.getElementById("profile")
+        photo.setAttribute("src", selectedUser["image"])
 
-            let pForm = document.getElementById("form");
-            pForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-                let first_name = document.getElementById("name").value;
-                let last_name = document.getElementById("surname").value;
-                let email = document.getElementById("email").value;
-                let address = document.getElementById("address").value;
-                let mobileNumber = document.getElementById("phone_no").value;
+        let pForm = document.getElementById("form");
+        pForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            let first_name = document.getElementById("name").value;
+            let last_name = document.getElementById("surname").value;
+            let email = document.getElementById("email").value;
+            let address = document.getElementById("address").value;
+            let mobileNumber = document.getElementById("phone_no").value;
+            let image = document.getElementById("image_url").value;
 
-                let newData = { first_name, last_name, email, address, mobileNumber };
-                let combinedData = Object.assign(selectedUser, newData);
-                console.log(combinedData);
-                let findIndex = fullArray.indexOf(selectedUser);
-                console.log(findIndex);
-                fullArray[findIndex] = combinedData;
+            let newData = { email, address, mobileNumber, image };
+            let combinedData = Object.assign(selectedUser, newData);
+            console.log(combinedData);
+            let findIndex = fullArray.indexOf(selectedUser);
+            console.log(findIndex);
+            fullArray[findIndex] = combinedData;
+            localStorage.setItem("user", JSON.stringify(fullArray));
+            alert("successfully changed");
+            window.location.href = "./doctor0.html";
+        });
+        let delete_user = document.getElementById("delete");
+        delete_user.addEventListener("click", function (event) {
+            event.preventDefault();
+            let indexDel = fullArray.indexOf(selectedUser);
+            let msg = confirm("Are you sure you want to delete this account");
+            if (msg !== true) {
+                return;
+            } else {
+                fullArray.splice(indexDel, 1);
+                console.log(fullArray);
                 localStorage.setItem("user", JSON.stringify(fullArray));
-                alert("successfully changed");
-            });
-            let delete_user = document.getElementById("delete");
-            delete_user.addEventListener("click", function (event) {
-                event.preventDefault();
-                let indexDel = fullArray.indexOf(selectedUser);
-                let msg = confirm("Are you sure you want to delete this account");
-                if (msg !== true) {
-                    return;
-                } else {
-                    fullArray.splice(indexDel, 1);
-                    console.log(fullArray);
-                    localStorage.setItem("user", JSON.stringify(fullArray));
-                    // window.location.href ="";
-                }
-            });
+                localStorage.removeItem("login_user")
+                alert("account deleted")
+                window.location.href = "/index.html";
 
+            }
 
+        });
 
+    </script>
 
+    <script src="../components/header.js">
 
-
-
-
-
-
-        </script>
-
+    </script>
+    <script>
+        nav_head()
+    </script>
 </body>
 
 </html>

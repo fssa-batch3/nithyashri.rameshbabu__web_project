@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/peirodspage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <header class="header" id="header">
+
+    </header>
+    <div class="per">
+        <img class="perimg" src="../assets/images/Period calculator (2).png">
+    </div>
+
+    <div class="period-calculator">
+        <!-- <h2>Period Calculator</h2> -->
+        <form id="calculator-form">
+            <label for="last-period">Last Period Date:</label>
+            <input type="date" id="last-period" name="last-period">
+            <label for="cycle-length">Cycle Length (in days):</label>
+            <input type="number" id="cycle-length" name="cycle-length" min="21" max="35">
+            <button type="submit">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('calculator-form');
+            const result = document.getElementById('result');
+
+            const today = new Date().toISOString().split('T')[0];
+            const lastPeriodInput = document.getElementById('last-period');
+            lastPeriodInput.setAttribute('max', today);
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const lastPeriodDate = new Date(lastPeriodInput.value);
+                const cycleLength = parseInt(document.getElementById('cycle-length').value);
+
+                const nextPeriod = new Date(lastPeriodDate);
+                nextPeriod.setDate(lastPeriodDate.getDate() + cycleLength);
+
+                const currentDate = new Date();
+
+
+                const results = `<p>Next Period Date: ${nextPeriod.toLocaleDateString()}</p>`;
+                result.innerHTML = results;
+            });
+        });
+    </script>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
+    </script>
+
+    <script src="../components/header.js"></script>
+    <script>
+        nav_head()
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</body>
+
+</html>

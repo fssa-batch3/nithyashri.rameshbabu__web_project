@@ -6,25 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/form.css">
 </head>
 
 <body>
+
     <form id="form">
         <div class="inputBox">
             <input id="image_url" type="text" name="" required="required" />
-            <span>Image Url</span>
+            <span>Doctor image</span>
         </div>
         <div class="inputBox">
-            <input id="href" type="text" name="" required="required" />
-            <span>href</span>
+            <input id="rating" type="text" name="" required="required" />
+            <span>Hospital name</span>
         </div>
         <div class="inputBox">
-            <input id="rating" type="number" name="" required="required" />
-            <span>Rating</span>
+            <input id="hospitalimg" type="text" name="" required="required" />
+            <span>Hospital img</span>
         </div>
         <div class="inputBox">
             <input id="Name" type="text" name="" required="required" />
-            <span>Name</span>
+            <span>Doctor name</span>
+        </div>
+        <div class="inputBox">
+            <input id="docmail" type="text" name="" required="required" />
+            <span>Doctor mail</span>
         </div>
         <div class="inputBox">
             <input id="Education" type="text" name="" required="required" />
@@ -32,11 +38,11 @@
         </div>
         <div class="inputBox">
             <input id="link" type="text" name="" required="required" />
-            <span>Link</span>
+            <span>overall ex</span>
         </div>
+
         <!-- button -->
-        <button type="submit" id="btn" class="btn5">Change</button>
-        <button id="btn2" class="btn4" type="submit">Delete</button>
+        <button type="submit" id="btn" class="btn5">Edit</button>
     </form>
 
     <!-- Javascript -->
@@ -56,22 +62,24 @@
             if (get_id == check_id)
                 return true
         })
-        // console.log(prod_obj);
+        console.log(prod_obj);
 
         // Showing the value in edit page
         let image = document.getElementById("image_url");
-        let href = document.getElementById("href");
         let rating = document.getElementById("rating");
+        let hosimg = document.getElementById("hospitalimg")
         let name = document.getElementById("Name");
+        let docmail = document.getElementById("docmail")
         let edu = document.getElementById("Education");
         let link = document.getElementById("link");
 
         image.value = prod_obj["image"]
-        href.value = prod_obj["href"]
         rating.value = prod_obj["rate"]
+        hosimg.value = prod_obj["hosimg"]
         name.value = prod_obj["name"]
         edu.value = prod_obj["education"]
         link.value = prod_obj["link"]
+        docmail.value = prod_obj["docmail"]
 
         // edit
         let form = document.getElementById("form")
@@ -79,19 +87,22 @@
             event.preventDefault();
 
             let img = document.getElementById("image_url").value;
-            let hr = document.getElementById("href").value;
             let rat = document.getElementById("rating").value;
+            let hosimg = document.getElementById("hospitalimg").value
             let nam = document.getElementById("Name").value;
+            let docmail = document.getElementById("docmail").value;
             let educa = document.getElementById("Education").value;
             let li = document.getElementById("link").value;
 
             let doc_obj = {
                 image: img,
-                href: hr,
                 rate: rat,
+                hosimg: hosimg,
                 name: nam,
+                docmail: docmail,
                 education: educa,
                 link: li,
+
             }
             // console.log(doc_obj);
 
@@ -107,28 +118,8 @@
             console.log(array);
 
             alert("edited successfully")
-
-
-
+            window.location.href = "./admindoc.html";
         })
-
-        let vardel = document.getElementById("btn2");
-        vardel.addEventListener("submit", function (event) {
-            // event.p
-            let delete_index = array.indexOf(prod_obj)
-            console.log(delete_index)
-            let confirm = confirm("Are you sure you want to delete this account")
-            if (confirm !== true) {
-                return;
-            } else {
-                array.splice(delete_index, 1);
-                console.log(array);
-                localStorage.setItem("new_card", JSON.stringify(array));
-                // window.location.href ="";
-            }
-
-        });
-
 
 
     </script>

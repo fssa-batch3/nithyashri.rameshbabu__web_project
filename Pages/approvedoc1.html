@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/approvedoc1.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+
+        <nav class="navbar">
+            <!-- <a href="./Pages/adminsign.html">Admin</a> -->
+            <a href="./adminHealthtest.html">Home</a>
+            <a href="./adminHealthtest.html">Health checks</a>
+            <a href="./admindoc.html">Doctors</a>
+            <a href="./adminservices.html">Blogs</a>
+            <!-- <a href="./Pages/signup.html">Login</a> -->
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </header>
+    <div class="info">
+        <!-- <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-premalatha-balachandran-obstetrician-chennai-f1207a3d-9bb4-4a8e-9641-91a6e372b1ca.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-k-s-jeyarani-kamaraj-obstetrician-chennai-18db8dae-62f3-4efe-b72b-b37e407b9aa9.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-shantha-rama-rao-gynecologist-chennai-0c3d20e9-8378-428b-b6be-f2811f8657b1.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-p-v-anuradha-gynecologist-chennai-e8ae80df-918f-49d8-ae82-e418d368a2da.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-v-vasanthi-gynecologist-chennai-8be54cc7-8e17-43ce-9e1c-0c8283d338dc.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div>
+        <div class="infocardContainer">
+            <div id="main">
+                <img
+                    src="https://imagesx.practo.com/providers/dr-meera-ragavan-obstetrician-chennai-c9ecf882-e98f-44ac-a945-751e4b0091ca.jpg?i_type=t_100x100-2x"></img>
+            </div>
+            <div id="text">
+                <h2>Sathya kani</h2>
+                <h4>Gynecologist</h4>
+                <a href="#">See full details</a>
+            </div>
+        </div> -->
+    </div>
+
+
+
+    <script>
+
+        let listdoctors = JSON.parse(localStorage.getItem("doctor"))
+        console.log(listdoctors)
+
+
+
+
+
+        for (let list of listdoctors) {
+            if (list["approve"] == "") {
+                let url = list["doctor_id"]
+                let box = document.createElement("div")
+                box.setAttribute("class", "infocardContainer")
+
+                let main = document.createElement("div")
+                main.setAttribute("id", "main")
+                box.append(main)
+
+                let img = document.createElement("img")
+                img.setAttribute("src", list["doctor_img"])
+                img.setAttribute("alt", "doctorimages")
+                main.append(img)
+
+                let text = document.createElement("div")
+                text.setAttribute("id", "text")
+                box.append(text)
+
+                let h2 = document.createElement("h2")
+                h2.innerHTML = list["name"]
+                text.append(h2)
+
+                let h4 = document.createElement("h4")
+                h4.innerHTML = list["special"]
+                text.append(h4)
+
+                let a = document.createElement("a")
+                a.setAttribute("class", "anchor")
+                a.setAttribute("href", "./approvedoc2.html?doctorid=" + list["doctor_id"])
+                a.innerHTML = "See the details"
+                text.append(a)
+                document.querySelector(".info").append(box)
+            }
+            // window.location.href = "./approvedoc2.html"
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
