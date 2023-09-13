@@ -87,8 +87,9 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 0;
+  text-decoration: underline;
 }
 
 p {
@@ -98,11 +99,12 @@ p {
 
 .appointment-details {
   margin-top: 20px;
+  /* font-size: 17px; */
 }
 
 .appointment-details p {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 19px;
 }
 
 .date-time {
@@ -117,7 +119,7 @@ p {
 
 .btn {
   display: inline-block;
-  background-color: #4caf50;
+  background-color: #32928b;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -144,4 +146,8 @@ p {
   justify-content: center;
   align-items: center;
   margin: auto;
+  margin-top: 100px;
+}
+.date-time {
+  font-size: 17px;
 }

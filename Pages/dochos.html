@@ -11,10 +11,11 @@
 
 <body>
     <form id="dochos">
-        <h1>Hospital_details</h1>
-        <label for="username">Hospital name</label>
-        <input type="text" id="hosname" pattern="^(?=.{0,50}$)[A-Za-z]+(?:\s[A-Za-z]+){0,3}$" required>
-        <label for="username">Hospital Address</label>
+        <h1>Clinic_details</h1>
+        <label for="username">Clinic name</label>
+        <input type="text" id="hosname" value="Agamya Hospital" pattern="^(?=.{0,50}$)[A-Za-z]+(?:\s[A-Za-z]+){0,3}$"
+            required>
+        <label for="username">Clinic Address</label>
         <input type="text" id="hosadd"
             pattern="^(?=.{0,200}$)[A-Za-z0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+(?:\s[A-Za-z0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[A-Za-z0-9]+){0,10}$"
             required>
@@ -55,12 +56,12 @@
                 </select></span>
 
 
-            <label for="username">Hospital img</label>
-            <input type="text" id="hosimg" required>
-            <label for="username">Consultation fee</label>
-            <input type="text" id="docfee" placeholder=" ₹"
-                pattern="^(?=.{0,200}$)[0-9!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+(?:\s[0-9\s!@#$%^&*()_+-={}[\]|\\;:'>,.?/]+[0-9]+){0,10}$"
+            <label for="username">Clinic image</label>
+            <input type="text" id="hosimg"
+                value="https://images1-fabric.practo.com/practices/1277202/agamya-hospital-bangalore-61dd441b6fdb5.jpeg"
                 required>
+            <label for="username">Consultation fee</label>
+            <input type="text" id="docfee" placeholder="₹" value="₹500-₹600" required>
             <button id="submit" type="submit">Continue</button>
     </form>
 
@@ -116,6 +117,7 @@
 
             alert("Step 4 completed")
             window.location.href = "./docapprove.html?doctorid=" + finddoc["doctor_id"]
+
 
 
 

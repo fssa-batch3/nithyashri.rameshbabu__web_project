@@ -131,6 +131,20 @@
             button.innerText = "viewmore"
             button.setAttribute("class", "btn")
             a.append(button)
+            let span;
+            span = document.createElement("span")
+            span.setAttribute("class", "span")
+            divthree.append(span)
+            let docimg;
+            docimg = document.createElement("img")
+            docimg.setAttribute("class", "imgdoc")
+            docimg.setAttribute("src", card[i]["doctor_img"])
+            span.append(docimg)
+            let docname;
+            docname = document.createElement("h2")
+            docname.setAttribute("id", "h4")
+            docname.innerHTML = `Created by <br>${card[i]["namedoc"]}`
+            span.append(docname);
             document.querySelector(".wrapper").append(divone)
 
 

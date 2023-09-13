@@ -10,58 +10,14 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
+    <header class="header" id="docheader">
 
-        <nav class="navbar">
-            <!-- <a href="./Pages/adminsign.html">Admin</a> -->
-            <a href="../index.html">Home</a>
-            <a href="./adminHealthtest.html">Health checks</a>
-            <a href="./admindoc.html">Doctors</a>
-            <a href="./adminservices.html">Blogs</a>
-            <!-- <a href="./Pages/signup.html">Login</a> -->
-        </nav>
-        <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <div class="wrapper">
 
 
     </div>
-    <footer class="footer">
-        <div class="container">
-            <div class="rows">
-                <div class="footer-col">
-                    <h4>Home</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Ratings</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Specialist</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Blogs</h4>
-                    <ul>
-                        <li><a href="#">consult</a></li>
-                        <li><a href="#">packages</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="share">
-                        <a href="#" class="fab fa-youtube"></a>=
-                    </div>
-                </div>
-            </div>
-        </div>
 
-
-    </footer>
     <!-- <script src="../assets/js/script.js"></script> -->
     <script>
         let blogs = JSON.parse(window.localStorage.getItem("blog"))
@@ -167,6 +123,18 @@
         }
 
 
+    </script>
+
+    <script>
+        function docprofile() {
+            window.location.href = "./doctorprofile.html"
+        }
+    </script>
+
+    <script src="../components/docheader.js">
+    </script>
+    <script>
+        docnav_head()
     </script>
 </body>
 

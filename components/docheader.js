@@ -17,7 +17,7 @@ let patient = rootpath + "/Pages/login.html"
 let home = rootpath + "/pages/successdoctor.html"
 // let Appointments = rootpath + "../Pages/appshow.html?docid=" + gmail["doctor_id"]
 
-let Articles = rootpath + ""
+let Articles = rootpath + "/pages/blogform.html?docid=" + gmail["doctor_id"]
 let indexpage = rootpath + "/pages/doclog.html"
 
 

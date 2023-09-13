@@ -6,22 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/form.css">
+    <link rel="stylesheet" href="../assets/css/adminblog.css">
 </head>
 
 <body>
     <form id="form">
+        <h1>Edit your blog</h1>
+        <div class="inputBox">
+            <input id="name_doc" type="text" required="required" />
+            <span>Doctor name</span>
+        </div>
+        <div class="inputBox">
+            <input id="spl_doc" type="text" required="required" />
+            <span>Speciality</span>
+        </div>
         <div class="inputBox">
             <input id="image_url" type="text" required="required" />
-            <span>Image Url</span>
+            <span>Blog Image</span>
         </div>
         <div class="inputBox">
             <input id="Name" type="text" required="required" />
-            <span>Title</span>
+            <span>Blog Title</span>
         </div>
         <div class="inputBox">
             <input id="content" type="text" required="required" />
-            <span>Content</span>
+            <span>Blog Content</span>
         </div>
 
         <button type="submit" id="btn" class="btn5">Edit</button>
@@ -58,20 +67,26 @@
 
         // Showing the value in edit page
 
-
+        let doc_name = document.getElementById("name_doc");
+        let spl_name = document.getElementById("spl_doc");
         let image = document.getElementById("image_url");
         let content = document.getElementById("content");
         let name = document.getElementById("Name");
 
+        doc_name.value = blogs["namedoc"]
+        spl_name.value = blogs["doc_spl"]
         image.value = blogs["image"]
         content.value = blogs["content"]
         name.value = blogs["name"]
+
 
         // edit
         let form = document.getElementById("form")
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
+            let names = document.getElementById("name_doc").value;
+            let spl = document.getElementById("spl_doc").value;
             let img = document.getElementById("image_url").value;
             let nam = document.getElementById("Name").value;
             let con = document.getElementById("content").value;
@@ -79,7 +94,9 @@
             let blogs_obj = {
                 image: img,
                 name: nam,
-                content: con
+                content: con,
+                doc_spl: spl,
+                namedoc: names
             }
             console.log(blogs_obj);
 

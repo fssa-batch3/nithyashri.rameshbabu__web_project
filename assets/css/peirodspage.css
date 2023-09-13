@@ -62,16 +62,7 @@ html {
   display: none;
 }
 
-#form {
-  max-width: 400px;
-  margin: 130px;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#docrandom_img {
+#random_img {
   vertical-align: middle;
   width: 50px;
   height: 50px;
@@ -80,58 +71,83 @@ html {
   cursor: pointer;
 }
 
-#form h2 {
+.period-calculator {
+  width: 500px;
+  padding: 50px;
+  background-color: #c4e4d4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* margin-bottom: 40px; */
+  margin-left: 150px;
+  margin-top: -500px;
+}
+
+.period-calculator h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #3a7356;
+  font-size: 24px;
 }
 
-.inputBox {
-  position: relative;
-  margin-bottom: 25px;
+#calculator-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.inputBox input[type="text"] {
+#calculator-form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+#calculator-form input[type="date"],
+#calculator-form input[type="number"] {
   width: 100%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
-.inputBox span {
-  position: absolute;
-  top: 12px;
-  left: 10px;
-  font-size: 16px;
-  color: #999;
-  transition: 0.3s;
-  pointer-events: none;
-}
-h1 {
-  text-align: center;
-}
-.banner img {
-  width: fit-content;
-  margin-top: 100px;
-}
-.inputBox input[type="text"]:focus + span,
-.inputBox input[type="text"]:valid + span {
-  top: -20px;
-  left: 5px;
-  font-size: 12px;
-  color: #042d05;
-}
-
-.btn5 {
-  background-color: #4caf50;
+#calculator-form button {
+  background-color: #3a7356;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.btn5:hover {
-  background-color: #45a05d;
+#calculator-form button:hover {
+  background-color: #3a7356;
+}
+
+#result {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #430a0a;
+}
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.right {
+  position: absolute;
+  right: 8%;
+  bottom: -5%;
+}
+
+.perimg {
+  width: 100%;
+  margin-top: 100px;
+}
+label {
+  font-size: 20px;
 }

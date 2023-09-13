@@ -4,7 +4,7 @@ let contact = rootpath + "/Pages/docsign.html"
 let patient = rootpath + "/Pages/login.html"
 let home = rootpath + "/pages/doctor0.html"
 let doctors = rootpath + "/pages/doctor.html"
-let healthtest = rootpath + "/pages/healthtest.html"
+let healthtest = rootpath + "/pages/periodspage.html"
 let blogs = rootpath + "/pages/services.html"
 let history = rootpath + "/pages/patientapphistory.html"
 let indexpage = rootpath + "/index.html"
@@ -14,8 +14,8 @@ let getuser = JSON.parse(localStorage.getItem("user_id"))
 let beforelogin = ` <a href="#" class="logo"> <i class="fas fa-heartbeat"></i>MGOOD</a>
 <nav class="navbar">
     <a href="${admin}">Admin</a>
-    <a href="${contact}">Doctor login</a>
-    <a href="${patient}">User login</a>
+    <a href="${contact}">Doctor</a>
+    <a href="${patient}">User</a>
 </nav>
 <div id="menu-btn" class="fas fa-bars"></div>`
 
@@ -27,7 +27,7 @@ let after_login =
     <nav class="navbar">
     <a href="${home}">Home</a>
         <a href="${doctors}">Doctors</a>
-        <a href="${healthtest}">Health test</a>
+        <a href="${healthtest}">Periods Calculator</a>
         <a href="${blogs}">Blogs</a>
         <a href="/pages/patientapphistory.html?userid=${getuser}">Booking history</a>
         <a href ="#" onclick = "logout_link()">logout</a>
@@ -80,6 +80,9 @@ function nav_head() {
 
 }
 
+function profile() {
+    window.location.href = "./userprofile.html"
+}
 
 
 function logout_link() {

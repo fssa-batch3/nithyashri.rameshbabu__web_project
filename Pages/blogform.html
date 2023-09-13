@@ -7,34 +7,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/adminblog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+    <header class="header" id="docheader">
+
+    </header>
+
     <form id="form">
+        <h1>Create an Article</h1>
+        <br>
+        <br>
         <div class="inputBox">
-            <input id="image_url" type="text" required="required" />
-            <span>Image Url</span>
+            <input id="name_doc" type="text" required="required" />
+            <span>Doctor name</span>
         </div>
         <div class="inputBox">
+            <input id="spl_doc" type="text" required="required" />
+            <span>Speciality</span>
+        </div>
+        <div class="inputBox">
+            <input id="image_url" type="text" required="required" />
+            <span>Blog Image</span>
+        </div>
+
+        <div class="inputBox">
             <input id="Name" type="text" required="required" />
-            <span>Title</span>
+            <span>Blog Title</span>
         </div>
         <div class="inputBox">
             <input id="content" type="text" required="required" />
-            <span>Content</span>
+            <span>Blog Content</span>
         </div>
-
-
-        <button type="submit" class="btn5">Send</butt on>
+        <button type="submit" class="btn5">Send</button>
     </form>
-
     <script>
+
+
+
+
+        let details_url = window.location.search
+        let urlparams = new URLSearchParams(details_url)
+        let geturl = urlparams.get("docid")
+        let doc_detail = JSON.parse(localStorage.getItem("doctor"))
+        let detail = doc_detail.find(function (url) {
+            let doc_id = url["doctor_id"]
+            if (geturl == doc_id) {
+                return true;
+            }
+
+        })
+        console.log(detail)
+
+
+        let doc_name = document.getElementById("name_doc").value = detail["name"]
+        let spl_name = document.getElementById("spl_doc").value = detail["special"]
         let form = document.getElementById("form");
 
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
             let blogObj = {};
+
+            let doc_name = document.getElementById("name_doc").value;
+            blogObj["namedoc"] = doc_name
+
+            let spl_name = document.getElementById("spl_doc").value;
+            blogObj["doc_spl"] = spl_name
 
             let image_url = document.getElementById("image_url").value;
             blogObj["image"] = image_url;
@@ -50,7 +90,15 @@
             let blog_id = Date.now()
             blogObj["blog_id"] = blog_id;
 
+
+            blogObj["doctor_img"] = detail["doctor_img"]
+
+
+
+
+
             console.log(blogObj);
+
 
             let all = [];
 
@@ -66,6 +114,19 @@
             window.location.href = "./adminservices.html"
 
         });
+    </script>
+
+
+    <script>
+        function docprofile() {
+            window.location.href = "./doctorprofile.html"
+        }
+    </script>
+
+    <script src="../components/docheader.js">
+    </script>
+    <script>
+        docnav_head()
     </script>
 </body>
 

@@ -148,7 +148,7 @@
                 // a tag
                 passage2 = document.createElement("p");
                 passage2.setAttribute("class", "rate");
-                passage2.innerText = element["hosname"]
+                passage2.innerText = element["docfee"]
                 div2.append(passage2);
                 // button
                 btn = document.createElement("div");
@@ -159,7 +159,7 @@
                 a.setAttribute("href", "../Pages/doctordetail.html?doc_id=" + element["doctor_id"] + "&user_id=" + getid)
                 a.innerText = "Consult Now"
                 btn.append(a);
-                document.querySelector(".main").append(card_div);
+                document.querySelector(".main").prepend(card_div);
 
             }
             )

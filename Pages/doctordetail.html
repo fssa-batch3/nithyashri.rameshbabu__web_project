@@ -15,21 +15,30 @@
     </header>
     <div class="main-wrapper">
         <div class="container">
+            <img id="img" alt="watch"><br>
             <div class="product-div">
+
                 <div class="product-div-left">
+
                     <div class="img-container">
-                        <img id="img" alt="watch">
+
+                        <div class="docname"><span id="name" class="doctor-name"></span><br>
+                            <span id="edu" class="doctor-price"></span>
+                        </div>
+                        <p class="doctor-description" id="para">
+
+                        </p>
+
+
                     </div>
                 </div>
                 <div class="product-div-right">
-                    <span id="name" class="doctor-name"></span>
-                    <span id="edu" class="doctor-price"></span>
-                    <span id="rate" class="doctor-hos"></span>
-                    <p class="doctor-description" id="para"></p>
-                    <div class="btn-groups">
-                        <button id="btn" onclick="btn()" class="add-appointment">Book
-                            slot</button>
-                    </div>
+
+                    <label class="lab">Select a date: </label>
+                    <input type="date" id="dateInput" onchange="validateDate(this)">
+
+                    <label class="lab">Timeslot:</label><span id="rate" class="doctor-hos"></span>
+
                 </div>
             </div>
         </div>
@@ -37,6 +46,24 @@
 
 
     <script>
+        function validateDate(input) {
+            const selectedDate = moment(input.value);
+            const currentDate = moment();
+            const threeDaysLater = moment().add(3, 'days');
+
+            if (selectedDate.isBefore(currentDate, 'day')) {
+                alert('Please select a future date');
+                input.value = ''; // Clear the input value if it's invalid
+            } else if (selectedDate.isAfter(threeDaysLater, 'day')) {
+                alert('You can only select dates within the next 3 days');
+                input.value = ''; // Clear the input value if it's invalid
+            } else {
+                // Perform further actions if the date is valid
+            }
+        }
+
+
+
         let details_url = window.location.search
         let urlparams = new URLSearchParams(details_url)
         let geturl = urlparams.get("doc_id")
@@ -62,17 +89,21 @@
         })
 
         let docdetail;
-        for (let i = 0; i < appoint.length; i++) {
-            docdetail = appoint.filter(function (doc_object) {
-                let doc_user = doc_object["Docid"]
-                console.log(doc_user);
+        if (appoint != null) {
+            for (let i = 0; i < appoint.length; i++) {
+                docdetail = appoint.filter(function (doc_object) {
+                    let doc_user = doc_object["Docid"]
+                    console.log(doc_user);
 
-                if (geturl == doc_user) {
-                    return true;
-                }
-            })
-            console.log(docdetail)
+                    if (geturl == doc_user) {
+                        return true;
+                    }
+                })
+                console.log(docdetail)
+            }
+
         }
+
 
 
 
@@ -117,13 +148,9 @@
                 const slotID = `slot_${currentDateString}_${doctorID}_${startString}-${endString}`;
 
                 // Create a new button element with a unique ID and text content
-
                 const slotBtn = document.createElement("button");
-
                 slotBtn.setAttribute("id", slotID);
                 slotBtn.setAttribute("class", "btn");
-
-
                 slotBtn.setAttribute("onclick", "tym(this.id)")
                 slotBtn.innerText = `${startString} - ${endString}`;
 
@@ -132,75 +159,59 @@
             }
         }
 
-
-
-
-
         function tym(id) {
-            window.localStorage.setItem("timeslotid", JSON.stringify(id))
+            let date = document.getElementById("dateInput").value
+            let obj = {
+                id, date
+            }
+            window.localStorage.setItem("timeslotid", JSON.stringify(obj))
+            window.location.href = "../Pages/bookapp.html?doc_id=" + doc_detail["doctor_id"]
+
         }
 
-        let bookbtn = document.getElementById("btn")
-        bookbtn.addEventListener("click", function (event) {
-            let slot = JSON.parse(localStorage.getItem("timeslotid"))
-            let arr = []
-            let appointmentid = Date.now()
-            let slotobj = {
-                slotID: slot,
-                Docid: doc_detail["doctor_id"],
-                appname: "",
-                appphn: "",
-                appfor: "",
-                appdte: "",
-                appemail: "",
-                appid: appointmentid,
-                user_id: getuser
-            }
-            if (localStorage.getItem("appointmentdetails") !== null) {
-                arr = JSON.parse(localStorage.getItem("appointmentdetails"));
-            }
-            arr.push(slotobj)
-            window.localStorage.setItem("appointmentdetails", JSON.stringify(arr))
-            window.location.href = "../Pages/bookapp.html?doc_id=" + doc_detail["doctor_id"] + "&appids=" + appointmentid
 
-        })
-
-
-        console.log(docdetail)
+        // console.log(docdetail)
 
         // if (docdetail[i]["Docid"] == geturl && docdetail[i]["slotID"] == slotID)
+        let b = document.getElementsByClassName("btn")
+        console.log(b)
+        let idArr = []
+        for (let i = 0; i < b.length; i++) {
+            let c = b[i].getAttribute("id");
+            idArr.push(c)
 
-        for (let i = 0; i < docdetail.length; i++) {
-            let b = document.getElementById(docdetail[i]["slotID"])
+        }
+        console.log(idArr);
 
-            if (b.getAttribute("id") == docdetail[i]["slotID"]) {
-                b.style.color = "grey"
-                b.disabled = true;
-                b.style.cursor = 'not-allowed';
+        for (let i = 0; i < idArr.length; i++) {
+            for (let j = 0; j < docdetail.length; j++) {
+                if (idArr[i] == docdetail[j]["slotID"]) {
+                    let button = document.getElementById(idArr[i]);
+                    button.style.color = "grey";
+                    button.disabled = true;
+                    button.style.cursor = 'not-allowed';
+                }
             }
         }
 
 
 
 
-
-
     </script>
+
     <script src="../assets/js/script.js">
     </script>
-    <script>
-        function profile() {
-            window.location.href = "./userprofile.html"
-        }
-    </script>
+
+
     <script src="../components/header.js">
 
     </script>
+
     <script>
         nav_head()
     </script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </body>
 

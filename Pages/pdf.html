@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/pdf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+
+    </header>
+    <div class="container">
+        <!-- <div class="fulldetail"> -->
+        <!-- <div class="whole">
+                <img src="../assets/images/Letterhead Doc in Bright Blue Bright Purple Classic Professional Style.jpg">
+            </div>
+            <div class="text">
+                <p>Dear John Doe,</p>
+                <p>We are pleased to confirm your upcoming appointment with Dr. Smith on May 20, 2023, at Mgood
+                    Center.Thanks for booking an appointment on Mgood. Here are the details of your appointment</p>
+                <p>
+                <ul>
+                    <li>Appointment Date: May 20, 2023</li>
+                    <li>Appointment Time: 10:00 AM</li>
+                    <li>Doctor: Dr. Smith</li>
+                    <li>Appointment id : 123456</li>
+                    <li>Location: Medical Center, 123 Main Street, City, State</li>
+                </ul>
+                </p>
+
+                Please arrive 15 minutes before your scheduled appointment time.</p>
+                <p>If you need to reschedule or cancel your appointment, please contact our office at least 24 hours in
+                    advance.
+                </p>
+                <p>We look forward to providing you with excellent medical care. Thank you for choosing our services.
+                </p>
+                <br>
+                <br>
+                <br>
+                <p>Be well!</p>
+                <p>Team Mgood</p>
+            </div> -->
+        <!-- </div> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+        let SlotDetails = JSON.parse(localStorage.getItem("timeslotid"))
+        const parts = SlotDetails["id"].split("_");
+        const times = parts[3].split("-");
+        const timeRange = times[0] + "-" + times[1];
+
+
+
+        const url = window.location.search;
+        const url_params = new URLSearchParams(url)
+        const get_id = url_params.get("appid")
+
+
+
+        let details = JSON.parse(localStorage.getItem("appointmentdetails"))
+        const appfind = details.find(function (id) {
+            let appid = id["appid"]
+            if (appid == get_id) {
+                return true;
+            }
+        })
+        console.log(appfind)
+
+
+        let box = document.createElement("div")
+        box.setAttribute("class", "fulldetail")
+        box.innerHTML = `
+        <div class="whole">
+                <img src="../assets/images/Letterhead Doc in Bright Blue Bright Purple Classic Professional Style.jpg">
+            </div>
+            <div class="text">
+                <p class="pm">Dear ${appfind["appname"]}</p>
+                <p>We are pleased to confirm your upcoming appointment with Dr ${appfind["docname"]} on ${appfind["slotdate"]} at Mgood
+                    Center.Thanks for booking an appointment on Mgood. Here are the details of your appointment</p>
+                <p>
+                <ul>
+                    <li>Appointment Date: ${appfind["slotdate"]}</li>
+                    <li>Appointment Time: ${timeRange}</li>
+                    <li>Doctor: Dr ${appfind["docname"]}</li>
+                    <li>Appointment id : #${appfind["appid"]}</li>
+                </ul>
+                </p>
+
+                Please arrive 15 minutes before your scheduled appointment time.</p>
+                <p>If you need to reschedule or cancel your appointment, please contact our office at least 24 hours in
+                    advance.
+                </p>
+                <p>We look forward to providing you with excellent medical care. Thank you for choosing Mgood.
+                </p>
+                <br>
+                <br>
+                <br>
+                <p>Be well!</p>
+                <p>Team Mgood</p>
+            </div>
+     
+            <button class= "btn" onclick = "window.print()">Download Appointment</button>`
+
+        document.querySelector(".container").append(box)
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+    <script src="../assets/js/script.js">
+    </script>
+    <script>
+        function profile() {
+            window.location.href = "./userprofile.html"
+        }
+    </script>
+    <script src="../components/header.js">
+
+    </script>
+    <script>
+        nav_head()
+    </script>
+</body>
+
+</html>
